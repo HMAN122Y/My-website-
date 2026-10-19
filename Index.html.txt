@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>رحلة أحمد مع السكري | فريق المحققين الصغار</title>
+<style>
+:root{--blue:#1e63e9;--blue2:#0f47b8;--sky:#dff0ff;--line:#cfe3ff;--orange:#ff6a1a;--yellow:#ffd23f;--ink:#12306e;--mint:#19b58a;--coral:#ff5a4f;--page:#f2f9ff;--purple:#7b3fd1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:"Segoe UI",Tahoma,"Noto Sans Arabic",Arial,sans-serif;line-height:1.8;background-color:var(--page);
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cpath d='M40 30l4 9 10 1-8 7 3 10-9-6-9 6 3-10-8-7 10-1z' fill='%23ffd23f'/%3E%3Ccircle cx='190' cy='60' r='3' fill='%238fc3ff'/%3E%3Cpath d='M230 200l3 7 8 1-6 5 2 8-7-5-7 5 2-8-6-5 8-1z' fill='%23ffd23f' opacity='.7'/%3E%3Ccircle cx='90' cy='220' r='2.5' fill='%238fc3ff'/%3E%3Ccircle cx='150' cy='140' r='2' fill='%238fc3ff'/%3E%3C/svg%3E")}
+button{font-family:inherit;cursor:pointer;border:0}
+button:focus-visible,a:focus-visible,textarea:focus-visible{outline:4px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1180px;margin:auto;padding:0 18px;position:relative}
+/* ===== شريط التنقل ===== */
+.navwrap{position:sticky;top:0;z-index:60;background:var(--blue);padding:8px 12px;box-shadow:0 4px 14px rgba(15,71,184,.3)}
+.navbar{max-width:900px;margin:auto;background:#5aa9ff;border-radius:999px;padding:5px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.navbar button{background:none;color:#fff;padding:7px 18px;border-radius:999px;font-size:16px;font-weight:800}
+.navbar button:hover{background:rgba(255,255,255,.25)}
+.navbar button.on{background:var(--orange);box-shadow:0 3px 0 #c24c07}
+.navbar .ck{margin-inline-start:4px;color:#d9ffe9}
+/* ===== السماء والشعار ===== */
+.sky{position:relative;overflow:hidden;background:linear-gradient(180deg,#1e63e9 0%,#3b8bff 55%,#a8d3ff 100%);padding:18px 0 78px;text-align:center}
+.sky.compact{padding:8px 0 34px}
+.sky .stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 40px 40px,#fff,transparent),radial-gradient(1.5px 1.5px at 140px 90px,#ffe9a0,transparent),radial-gradient(2px 2px at 260px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 330px 110px,#fff,transparent),radial-gradient(2px 2px at 90px 120px,#ffe9a0,transparent);background-size:360px 150px}
+.cloudrow{position:absolute;left:0;right:0;bottom:0;height:62px;background:radial-gradient(circle at 28px 66px,var(--page) 34px,transparent 35px),radial-gradient(circle at 78px 72px,var(--page) 42px,transparent 43px),radial-gradient(circle at 128px 68px,var(--page) 36px,transparent 37px);background-size:150px 70px;background-repeat:repeat-x;background-position:bottom}
+.cloudrow::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--page)}
+.logo{position:relative;background:none;display:inline-flex;flex-direction:column;align-items:center;line-height:1.05;padding:0}
+.logo .l1,.logo .l2{font-weight:900;color:var(--yellow);-webkit-text-stroke:8px #0b3a9e;paint-order:stroke fill;text-shadow:0 6px 0 rgba(8,30,100,.35)}
+.logo .l1{font-size:clamp(34px,7vw,64px)}
+.logo .l2{font-size:clamp(26px,5.4vw,48px);color:#fff}
+.sky.compact .logo{flex-direction:row;gap:10px}.sky.compact .logo .l1{font-size:clamp(22px,4.6vw,32px);-webkit-text-stroke:6px #0b3a9e}.sky.compact .logo .l2{font-size:clamp(18px,3.6vw,26px);-webkit-text-stroke:5px #0b3a9e}
+.sky.compact .cloudrow{height:34px}
+.sky .rocket{position:absolute;top:14px;font-size:40px;opacity:.95}
+.sky.compact .rocket,.sky.compact .stars{display:none}
+.planet{position:absolute;pointer-events:none;z-index:0}
+.p1{width:110px;top:6px;right:3%}.p2{width:80px;top:20px;left:4%}.p3{width:70px;top:70px;right:16%}
+/* ===== عام ===== */
+.view{display:none}.view.on{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:.2}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 26px;border-radius:14px;font-size:18px;font-weight:800;background:var(--orange);color:#fff;box-shadow:0 5px 0 #c24c07;transition:transform .12s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c24c07}
+.btn.line{background:#fff;color:var(--blue2);border:3px solid var(--blue);box-shadow:none}
+.btn.blue{background:var(--blue);box-shadow:0 5px 0 var(--blue2)}
+.btn.small{padding:7px 16px;font-size:15px}
+.btn:disabled{opacity:.4;cursor:default;transform:none}
+.tag{display:inline-block;background:#fff;color:var(--blue2);border:2px solid var(--blue);border-radius:999px;padding:3px 16px;font-weight:800;font-size:14px}
+.h2{font-size:clamp(22px,4.4vw,30px);margin:22px 0 10px;color:var(--ink);font-weight:900}
+.muted{color:#5c76b4;font-size:15px}
+/* ===== الصفحة الرئيسية ===== */
+.banner{position:relative;border-radius:26px;overflow:hidden;height:clamp(250px,42vw,450px);border:4px solid #fff;box-shadow:0 12px 26px rgba(15,71,184,.3);margin-top:-34px;background:#9fd2ff;z-index:2}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .6s;pointer-events:none}
+.slide.on{opacity:1;pointer-events:auto}
+.slide .art{position:absolute;inset:0}.slide .illus{width:100%;height:100%;display:block}
+.slide .cap{position:absolute;inset-inline:0;bottom:0;padding:70px 24px 40px;background:linear-gradient(transparent,rgba(8,30,90,.9));color:#fff}
+.slide .cap h2{margin:0;font-size:clamp(22px,4.8vw,40px);text-shadow:0 3px 0 rgba(0,0,0,.3)}
+.slide .cap p{margin:2px 0 10px;font-size:clamp(15px,2.8vw,19px);opacity:.95}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;font-size:22px;font-weight:900;box-shadow:0 4px 10px rgba(0,0,0,.35);z-index:3;border:3px solid #fff}
+.arrow.nx{left:12px}.arrow.pv{right:12px}
+.dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.dots button{width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.6);padding:0}.dots button.on{background:var(--orange)}
+.homegrid{display:grid;grid-template-columns:290px 1fr;gap:22px;margin-top:10px}
+.side>*{margin-bottom:16px}
+.live{width:100%;background:var(--orange);color:#fff;font-size:20px;font-weight:900;border-radius:14px;padding:14px;box-shadow:0 5px 0 #c24c07}
+.sidebox{background:#fff;border:3px solid var(--line);border-radius:20px;padding:16px}
+.sidebox h3{margin:0 0 8px;font-size:19px}
+.route{list-style:none;margin:0;padding:0}
+.route li{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-weight:700;cursor:pointer}
+.route li:last-child{border:0}
+.route .n{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900;flex:none}
+.route li.done .n{background:var(--mint)}
+.route small{display:block;color:#6a84bd;font-weight:500;font-size:13px}
+.credit b{display:block;font-size:18px}.credit small{color:#6a84bd}
+.nowrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.now{background:#fff;border-radius:16px;box-shadow:0 5px 14px rgba(30,99,233,.14);padding:10px;display:flex;align-items:center;gap:10px;text-align:right;color:var(--ink);position:relative}
+.now .th{width:92px;height:62px;border-radius:10px;overflow:hidden;flex:none;background:#9fd2ff}
+.now .th .illus{width:100%;height:100%;display:block}
+.now b{display:block;font-size:16px;line-height:1.3}
+.now span.t{color:#6a84bd;font-size:14px}
+.now .dot{position:absolute;top:8px;left:8px;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:900}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fcard{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 8px 18px rgba(30,99,233,.18);text-align:right;display:flex;flex-direction:column;color:#fff;position:relative}
+.fcard .pic{height:140px;overflow:hidden;background:#9fd2ff}
+.fcard .pic .illus{width:100%;height:100%;display:block}
+.fcard .txt{padding:14px 16px 18px;flex:1;display:flex;flex-direction:column;gap:4px}
+.fcard h3{margin:0;font-size:21px}.fcard p{margin:0 0 8px;font-size:15px;opacity:.95}
+.fcard .btn{align-self:flex-start;margin-top:auto;background:#fff;color:var(--ink);box-shadow:0 4px 0 rgba(0,0,0,.25);padding:8px 18px;font-size:16px}
+.fcard.c1 .txt{background:linear-gradient(180deg,#7b3fd1,#5a2aa8)}
+.fcard.c2 .txt{background:linear-gradient(180deg,#ff8a2a,#ee5f0d)}
+.fcard.c3 .txt{background:linear-gradient(180deg,#2f84ff,#1448c0)}
+.fcard .done{position:absolute;top:10px;right:10px;background:var(--mint);color:#fff;border-radius:999px;padding:1px 12px;font-weight:800;font-size:13px;display:none}
+.fcard.finished .done{display:block}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fact{background:#fff;border:3px solid var(--line);border-radius:20px;padding:16px}
+.fact h3{margin:0 0 4px;font-size:19px;color:var(--blue2)}.fact p{margin:0;font-size:16px}
+.about{background:#fff;border:3px solid var(--line);border-radius:22px;padding:20px;margin-top:20px}
+.about h2{margin:0 0 6px;color:var(--blue2)}
+.credits{display:flex;gap:36px;flex-wrap:wrap;margin-top:10px}
+.credits div{display:flex;flex-direction:column}.credits small{color:#6a84bd}.credits strong{font-size:19px}
+footer.foot{margin-top:36px;background:var(--blue);color:#fff;padding:20px 0 26px}
+.foot-in{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.foot .credits strong{font-size:17px;color:#fff}.foot .credits small{color:#cfe3ff}
+/* ===== صفحات الأنشطة ===== */
+.page{padding-block:22px 50px}
+.crumb{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;font-size:14px;color:#6a84bd}.crumb b{color:var(--orange)}
+.brief{background:#fff;border:3px solid var(--line);border-radius:26px;padding:clamp(18px,4vw,30px);box-shadow:0 10px 22px rgba(30,99,233,.12)}
+.brief h2{margin:6px 0 4px;font-size:clamp(22px,5vw,32px);color:var(--blue2)}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.bbox{background:#f3f9ff;border-radius:16px;padding:12px 16px;border:2px solid var(--line)}
+.bbox b{display:block;color:var(--blue2);margin-bottom:4px}
+.bbox ul{margin:0;padding-inline-start:18px}.bbox li,.bbox p{font-size:16px;margin:0}
+.bbox.wide{grid-column:span 3;background:#fff7d6;border-color:var(--yellow)}
+.panel{background:#fff;border:3px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 10px 22px rgba(30,99,233,.12)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;background:linear-gradient(90deg,#1e63e9,#3b8bff);color:#fff;flex-wrap:wrap}
+.pbar{flex:1;min-width:140px;height:12px;border-radius:99px;background:rgba(0,0,40,.35);overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--yellow);width:0;transition:width .35s}
+.illus{display:block;width:100%;height:auto;background:#cfe9ff}
+.sbody{padding:clamp(16px,4vw,28px)}
+.sbody h3{margin:0 0 6px;font-size:clamp(22px,4.6vw,30px);color:var(--blue2)}
+.txt{font-size:clamp(18px,3.8vw,22px);line-height:2;margin:6px 0 12px}
+.dlg{display:flex;flex-direction:column;gap:8px;margin:8px 0 12px}
+.bub{background:#f3f9ff;border-radius:16px;padding:8px 14px;border-right:7px solid var(--blue);font-size:clamp(17px,3.5vw,20px)}
+.bub b{margin-inline-end:6px}
+.factbox{background:#fff7d6;border:3px solid var(--yellow);border-radius:18px;padding:12px 16px;margin:10px 0;font-size:clamp(16px,3.4vw,19px)}
+.factbox b{color:#a56200;display:block}
+.after{display:none;background:#e3f8ef;border:3px solid var(--mint);color:#0b5c46;border-radius:18px;padding:12px 16px;margin-top:12px;font-size:clamp(17px,3.5vw,20px)}
+.after.show{display:block}
+.q{font-weight:900;font-size:clamp(19px,3.8vw,23px);color:var(--blue2);margin:14px 0 8px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:right;margin:10px 0;padding:12px 16px;border-radius:16px;border:3px solid var(--line);background:#f3f9ff;color:var(--ink);font-size:clamp(16px,3.4vw,20px);font-weight:700;min-height:58px}
+.opt .oi{font-size:34px;flex:none;line-height:1}
+.opt:hover:not(:disabled){border-color:var(--orange)}
+.opt.ok{background:#d9f7ec;border-color:var(--mint)}
+.opt.no{background:#ffe2de;border-color:var(--coral)}
+.opt:disabled{cursor:default}
+.fb{margin-top:10px;border-radius:14px;padding:12px 16px;font-size:clamp(16px,3.4vw,19px);display:none}
+.fb.good{display:block;background:#d9f7ec;color:#0b5c46}
+.fb.bad{display:block;background:#fff1c9;color:#6b4a00}
+.retry{margin-top:10px}
+.nav2{display:flex;justify-content:space-between;gap:10px;margin-top:16px;flex-wrap:wrap;align-items:center}
+textarea{width:100%;min-height:80px;border-radius:14px;border:3px solid var(--line);background:#f3f9ff;color:var(--ink);font-family:inherit;font-size:17px;padding:10px}
+.list{margin:6px 0;padding-inline-start:22px}.list li{font-size:clamp(17px,3.4vw,20px);margin:6px 0}
+.note{margin-top:14px;background:#fff7d6;border:2px solid var(--yellow);border-radius:16px;padding:12px 16px;font-size:16px}
+.res{direction:ltr;unicode-bidi:isolate;font-size:clamp(40px,10vw,64px);text-align:center;font-weight:900;color:var(--orange)}
+.badge{font-size:84px;text-align:center}
+.check{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.check label{display:flex;gap:10px;align-items:center;background:#f3f9ff;border:2px solid var(--line);border-radius:12px;padding:10px 14px;font-size:17px}
+.check input{width:24px;height:24px;accent-color:var(--orange)}
+/* ===== 360 ===== */
+.stations{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.stations div{flex:1;min-width:150px;background:#fff;border:3px solid var(--line);border-radius:14px;padding:8px 12px;font-weight:800;font-size:15px;color:#6a84bd}
+.stations div.on{border-color:var(--orange);color:var(--orange)}
+.stations div.ok{border-color:var(--mint);color:var(--mint)}
+#stage{user-select:none;-webkit-user-select:none;position:relative;height:clamp(330px,62vh,640px);touch-action:none;cursor:grab;background:#000;border-radius:22px;overflow:hidden;border:4px solid var(--blue)}
+#stage.drag{cursor:grabbing}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+#lens{position:absolute;left:50%;top:50%;border-radius:50%;transform:translate(-50%,-50%);border:7px solid var(--yellow);box-shadow:0 0 0 9999px rgba(10,30,90,.42),inset 0 0 40px rgba(255,255,255,.28);pointer-events:none;z-index:2}
+#lens::after{content:"";position:absolute;left:85.4%;top:85.4%;width:20px;height:96px;border-radius:10px;background:linear-gradient(90deg,#a36d34,#6e4520);transform:translate(-50%,0) rotate(-45deg);transform-origin:top center}
+#hots{position:absolute;inset:0;z-index:3;pointer-events:none}
+.hs{pointer-events:auto;position:absolute;left:0;top:0;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:3px solid #fff;background:rgba(255,106,26,.75);display:none;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:900;padding:0;transition:opacity .15s}
+.hs::after{content:"";width:12px;height:12px;border-radius:50%;background:#fff}
+.hs.inlens{animation:pulse 1.4s infinite;background:rgba(255,210,63,.95)}
+.hs.done{background:rgba(25,181,138,.9);animation:none}.hs.done::after{display:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,210,63,.9)}70%{box-shadow:0 0 0 18px rgba(255,210,63,0)}100%{box-shadow:0 0 0 0 rgba(255,210,63,0)}}
+.hint{position:absolute;top:10px;inset-inline:10px;z-index:4;background:rgba(10,30,90,.9);color:#fff;border-radius:14px;padding:8px 14px;font-size:15px;text-align:center}
+.hud{position:absolute;inset-inline:10px;bottom:10px;z-index:4;display:flex;justify-content:space-between;align-items:flex-end;gap:8px;pointer-events:none}
+.hud>*{pointer-events:auto}
+.dpad{display:grid;grid-template-columns:repeat(3,46px);grid-template-rows:repeat(3,46px);gap:4px}
+.dpad button,.tb{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.95);color:var(--ink);font-size:20px;font-weight:900;box-shadow:0 3px 8px rgba(0,0,0,.4);padding:0}
+.dpad .u{grid-column:2;grid-row:1}.dpad .l{grid-column:1;grid-row:2}.dpad .c{grid-column:2;grid-row:2;font-size:16px}.dpad .r{grid-column:3;grid-row:2}.dpad .d{grid-column:2;grid-row:3}
+.tools{display:flex;flex-direction:column;gap:6px}
+.found{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;flex-wrap:wrap}
+.score{background:var(--orange);color:#fff;font-weight:900;border-radius:999px;padding:4px 18px}
+.simple{display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.item{background:#fff;border:3px solid var(--line);border-radius:16px;padding:12px;text-align:center;color:var(--ink);font-weight:800;font-size:16px}
+.item span{display:block;font-size:42px}.item.done{border-color:var(--mint)}.item:hover{border-color:var(--orange)}
+.modal{position:fixed;inset:0;background:rgba(5,20,70,.78);display:none;align-items:center;justify-content:center;padding:14px;z-index:90;overflow:auto}
+.modal.open{display:flex}
+.mcard{background:#fff;color:var(--ink);border-radius:24px;max-width:520px;width:100%;padding:24px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.5);border:5px solid var(--yellow)}
+.mcard .big{font-size:74px;line-height:1.1}.mcard h3{margin:4px 0;font-size:26px;color:var(--blue2)}.mcard p{font-size:19px;margin:8px 0 16px}
+.tray{margin:12px 0;min-height:100px;border-radius:50% / 38%;background:#fff;border:6px solid var(--yellow);box-shadow:inset 0 0 0 6px #fff4cc;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:14px;font-size:20px;font-weight:800}
+.foods{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.food{background:#f3f9ff;border:3px solid var(--line);border-radius:16px;padding:10px;color:var(--ink);font-weight:800;font-size:16px;text-align:center}
+.food span{display:block;font-size:42px}.food small{display:block;color:#6a84bd;font-weight:500;font-size:13px}
+.food.chosen{border-color:var(--orange);background:#fff3e8}.food.good{border-color:var(--mint);background:#e3f8ef}
+.cards4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.gcard{background:#fff;border:3px solid var(--line);border-radius:20px;padding:18px}
+.gcard h3{margin:0 0 6px;font-size:22px;color:var(--blue2)}.gcard p{margin:0;font-size:17px}
+@media (max-width:860px){.homegrid{grid-template-columns:1fr}.side{order:2}.nowrow,.feat,.facts,.cards4{grid-template-columns:1fr}.bgrid{grid-template-columns:1fr}.bbox.wide{grid-column:auto}.planet{display:none}.dpad{grid-template-columns:repeat(3,40px);grid-template-rows:repeat(3,40px)}.dpad button,.tb{width:40px;height:40px}.navbar button{padding:6px 12px;font-size:14px}}
+@media print{.navwrap,.sky,footer.foot,.noprint,.view:not(.on){display:none!important}body{background:#fff}.gcard,.bbox,.note{border:1px solid #999;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="navwrap"><nav class="navbar" aria-label="التنقل الرئيسي">
+ <button data-go="home" data-nav="home">الرئيسية</button>
+ <button data-go="sb" data-nav="story">القصة<span class="ck" id="ckStory"></span></button>
+ <button data-go="vb" data-nav="vr">تجربة 360°<span class="ck" id="ckVr"></span></button>
+ <button data-go="fb" data-nav="final">الدليل والتقويم<span class="ck" id="ckFinal"></span></button>
+ <button data-go="about" data-nav="about">عن المشروع</button>
+</nav></div>
+<header class="sky" id="sky">
+ <div class="stars"></div>
+ <svg class="planet p1" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="32" fill="#ff9a2e"/><path d="M40,48 q20,-10 40,6" stroke="#ffb95e" stroke-width="6" fill="none"/><ellipse cx="60" cy="62" rx="56" ry="13" fill="none" stroke="#ffd23f" stroke-width="7" transform="rotate(-20 60 62)"/></svg>
+ <svg class="planet p2" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34" fill="#3fa3ff"/><path d="M36,50 q14,-14 30,-4 q10,8 -2,18 q-16,6 -28,-14z" fill="#3fbf6a"/><path d="M62,84 q16,-6 22,-20 q8,16 -8,26z" fill="#3fbf6a"/></svg>
+ <svg class="planet p3" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4l7 16 17 2-13 11 4 17-15-9-15 9 4-17-13-11 17-2z" fill="#ffd23f"/></svg>
+ <button class="logo" data-go="home" aria-label="رحلة أحمد مع السكري"><span class="l1">رحلة أحمد</span><span class="l2">مع السكري</span></button>
+ <div class="cloudrow"></div>
+</header>
+
+<!-- ============ الرئيسية ============ -->
+<section class="view" id="v-home">
+ <div class="wrap">
+  <div class="banner" id="banner" aria-roledescription="شريط عرض">
+   <div class="slide on" data-i="0"><div class="art" data-art="classroom"></div><div class="cap"><h2>ابدأ القصة: فريق المحققين الصغار</h2><p>تابع أحمد وأصدقاءه في خمس قضايا مصورة، ثم أجب عن الأسئلة.</p><button class="btn small" data-go="sb">ابدأ القصة ←</button></div></div>
+   <div class="slide" data-i="1"><div class="art" data-art="cafe"></div><div class="cap"><h2>استكشف المقصف بعدسة المحقق 🔍</h2><p>دوّر المشهد 360° واكتشف الأدلة، ثم كوّن وجبة متنوعة.</p><button class="btn small" data-go="vb">ابدأ تجربة 360° ←</button></div></div>
+   <div class="slide" data-i="2"><div class="art" data-art="end"></div><div class="cap"><h2>الدليل الصحي والتقويم الختامي</h2><p>راجع الرسائل الصحية، وأجب عن مواقف «ماذا ستفعل؟» لتنال شارتك.</p><button class="btn small" data-go="fb">افتح الدليل والتقويم ←</button></div></div>
+   <button class="arrow pv" id="bPrev" aria-label="السابق">›</button><button class="arrow nx" id="bNext" aria-label="التالي">‹</button>
+   <div class="dots" id="bDots"></div>
+  </div>
+  <div class="homegrid">
+   <aside class="side">
+    <button class="live" data-go="sb">ابدأ الرحلة الآن ◉</button>
+    <div class="sidebox"><h3>🧭 مسار الرحلة</h3>
+     <ul class="route">
+      <li id="rtStory" data-go="sb"><span class="n">1</span><span>القصة<small>5 إلى 7 دقائق</small></span></li>
+      <li id="rtVr" data-go="vb"><span class="n">2</span><span>تجربة 360°<small>7 إلى 10 دقائق</small></span></li>
+      <li id="rtFinal" data-go="fb"><span class="n">3</span><span>الدليل والتقويم<small>6 إلى 8 دقائق</small></span></li>
+     </ul></div>
+    <div class="sidebox credit"><h3>👥 فريق المشروع</h3><small>إعداد</small><b>عبدالرحمن كمال</b><small>إشراف</small><b>د. منى إبراهيم</b><small>المقرر</small><b style="font-size:15px">TCHL418 · جامعة البحرين</b></div>
+   </aside>
+   <div class="main">
+    <h2 class="h2" style="margin-top:6px">الآن في الرحلة</h2>
+    <div class="nowrow">
+     <button class="now" data-go="sb"><span class="dot">1</span><span class="th" data-art="classroom"></span><span><b>القصة المصورة</b><span class="t">5 – 7 دقائق</span></span></button>
+     <button class="now" data-go="vb"><span class="dot">2</span><span class="th" data-art="cafe"></span><span><b>مهمة المقصف 360°</b><span class="t">7 – 10 دقائق</span></span></button>
+     <button class="now" data-go="fb"><span class="dot">3</span><span class="th" data-art="end"></span><span><b>الدليل والتقويم</b><span class="t">6 – 8 دقائق</span></span></button>
+    </div>
+    <h2 class="h2">برامجنا المميزة</h2>
+    <div class="feat">
+     <div class="fcard c1" id="pcStory"><span class="done">✓ اكتملت</span><div class="pic" data-art="gate"></div><div class="txt"><h3>القصة التعليمية</h3><p>فريق المحققين الصغار يكشف أسرار الصداقة والاحترام.</p><button class="btn" data-go="sb">ابدأ القصة ←</button></div></div>
+     <div class="fcard c2" id="pcVr"><span class="done">✓ اكتملت</span><div class="pic" data-art="cafe"></div><div class="txt"><h3>مهمة المقصف 360°</h3><p>استخدم عدسة المحقق لاكتشاف الأطعمة وكوّن وجبتك.</p><button class="btn" data-go="vb">ابدأ التجربة ←</button></div></div>
+     <div class="fcard c3" id="pcFinal"><span class="done">✓ اكتملت</span><div class="pic" data-art="office"></div><div class="txt"><h3>الدليل والتقويم</h3><p>راجع ما تعلمته وأجب عن مواقف «ماذا ستفعل؟».</p><button class="btn" data-go="fb">افتح الدليل ←</button></div></div>
+    </div>
+    <h2 class="h2">رسائل الرحلة</h2>
+    <div class="facts">
+     <div class="fact"><h3>🎯 أهدافنا</h3><p>تعزيز الوعي الصحي، وتشجيع العادات المتوازنة، وتعلّم احترام الزميل المصاب بالسكري.</p></div>
+     <div class="fact"><h3>💡 معلومة مهمة</h3><p>السكري غير معدٍ، ويمكن للطفل المصاب به المشاركة في أنشطة المدرسة مع مراعاة احتياجاته الصحية.</p></div>
+     <div class="fact"><h3>💗 تذكّر دائمًا</h3><p>الدعم والاحترام يصنعان فرقًا كبيرًا. لا تسخر من أحد، واطلب مساعدة شخص بالغ موثوق عند الحاجة.</p></div>
+    </div>
+    <div class="about" id="about">
+     <h2>عن المشروع</h2>
+     <p class="muted" style="font-size:17px">نشاط توعوي صحي يهدف إلى تبسيط بعض المعلومات عن السكري للأطفال، وتنمية التعاطف والسلوك الداعم داخل المدرسة.</p>
+     <div class="credits"><div><small>إعداد</small><strong>عبدالرحمن كمال</strong></div><div><small>إشراف</small><strong>د. منى إبراهيم</strong></div></div>
+     <p class="muted" style="margin-top:12px">ملاحظة: هذا نموذج تعليمي؛ يراجع المعلم المحتوى الصحي والأهداف التعليمية قبل الاستخدام.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="view" id="v-sb"><div class="wrap page"><div class="crumb"><b>1 · القصة</b> ← 2 · لعبة 360° ← 3 · الدليل والتقويم</div><div id="briefStory"></div></div></section>
+
+<section class="view" id="v-story"><div class="wrap page">
+ <div class="crumb"><b>1 · القصة</b> ← 2 · لعبة 360° ← 3 · الدليل والتقويم</div>
+ <div class="panel">
+  <div class="bar"><strong id="stCount">الصفحة 1 من 8</strong><div class="pbar" aria-hidden="true"><i id="stBar"></i></div><button class="btn small line" data-go="sb">دليل النشاط</button></div>
+  <div id="stBody"></div>
+ </div>
+</div></section>
+
+<section class="view" id="v-vb"><div class="wrap page"><div class="crumb">1 · القصة ← <b>2 · لعبة 360°</b> ← 3 · الدليل والتقويم</div><div id="briefVr"></div></div></section>
+
+<section class="view" id="v-vr"><div class="wrap page">
+ <div class="crumb">1 · القصة ← <b>2 · مهمة أحمد في مقصف المدرسة</b> ← 3 · الدليل والتقويم</div>
+ <div class="stations" id="stations"><div>1 · استكشف المقصف</div><div>2 · ضع الغذاء في الصحن</div><div>3 · النتيجة</div></div>
+
+ <div id="s1">
+  <div id="stage" aria-label="مشهد مقصف المدرسة بزاوية 360 درجة">
+   <canvas id="gl"></canvas>
+   <div id="lens"></div>
+   <div id="hots"></div>
+   <div class="hint" id="hint">🔍 حرّك المشهد، وضع الأشياء داخل عدسة المحقق لتضيء الأدلة، ثم اضغط عليها.</div>
+   <div class="hud">
+    <div class="dpad" aria-label="التحكم في الاتجاه"><button class="u" data-d="u" aria-label="أعلى">▲</button><button class="l" data-d="l" aria-label="يمين">◀</button><button class="c" data-d="c" aria-label="إعادة">⟲</button><button class="r" data-d="r" aria-label="يسار">▶</button><button class="d" data-d="d" aria-label="أسفل">▼</button></div>
+    <div class="tools"><button class="tb" id="zin" aria-label="تكبير">+</button><button class="tb" id="zout" aria-label="تصغير">−</button><button class="tb" id="fs" aria-label="ملء الشاشة" style="font-size:18px">⛶</button></div>
+   </div>
+  </div>
+  <div class="simple" id="simple"></div>
+  <div class="found"><span class="score" id="foundN">اكتشفت 0 من 8</span>
+   <span><button class="btn small line" id="toggleHot">إخفاء النقاط</button> <button class="btn small line" id="toggleSimple">العرض العادي (بديل مبسط)</button></span></div>
+  <div class="nav2"><button class="btn line" data-go="vb">دليل النشاط</button><button class="btn" id="to2" disabled>المحطة 2: ضع الغذاء في الصحن ←</button></div>
+ </div>
+
+ <div id="s2" style="display:none"><div class="panel"><div class="sbody">
+  <h3>🍽️ المحطة 2: ضع الغذاء في الصحن</h3>
+  <p class="txt">اضغط على الأطعمة لتضعها في طبق أحمد (اختر 3 على الأقل)، ثم اضغط «تحقق من اختياراتي».</p>
+  <div class="foods" id="foods"></div>
+  <div class="tray" id="tray"><span style="font-weight:500">الطبق فارغ</span></div>
+  <div class="fb" id="trayFb" aria-live="polite"></div>
+  <div class="nav2"><span><button class="btn" id="chk">تحقق من اختياراتي</button> <button class="btn line" id="retryTray">حاول مجددًا</button></span><button class="btn" id="to3" disabled>عرض النتيجة ←</button></div>
+  <p class="note">لا توجد وجبة واحدة تناسب جميع الأطفال المصابين بالسكري. تختلف الوجبات حسب خطة كل طفل وإرشادات أسرته وفريقه الصحي، وهذه لعبة تعليمية وليست توصية علاجية.</p>
+ </div></div></div>
+
+ <div id="s3" style="display:none"><div class="panel"><div class="sbody">
+  <div class="badge">🔍🏅</div><h3 style="text-align:center">انتهت مهمة المقصف!</h3>
+  <div class="res" id="vrScore"></div>
+  <p class="txt" id="vrMsg" style="text-align:center"></p>
+  <h3>ما تعلمناه عن الغذاء المتوازن</h3>
+  <ul class="list"><li>الوجبة المتنوعة تجمع أطعمة من مجموعات مختلفة.</li><li>الماء غالبًا هو الخيار المناسب للشرب.</li><li>لكل طفل خطة صحية، فلا نقرر نحن ما يأكله زميلنا.</li></ul>
+  <h3 style="margin-top:14px">قائمة ملاحظة المعلم</h3>
+  <div class="check noprint"><label><input type="checkbox"> يختار التلميذ أطعمة متنوعة</label><label><input type="checkbox"> يفسّر اختياره تفسيرًا بسيطًا</label></div>
+  <p class="muted">المعيار الثالث (تحديد التصرف الصحيح في المواقف الصحية) يُلاحَظ في «الدليل والتقويم».</p>
+  <div class="nav2"><span><button class="btn line" id="vrAgain">إعادة اللعب</button> <button class="btn line" data-go="sb">العودة إلى القصة</button></span><button class="btn" data-go="fb">الانتقال إلى الدليل والتقويم ←</button></div>
+ </div></div></div>
+</div></section>
+
+<section class="view" id="v-fb"><div class="wrap page"><div class="crumb">1 · القصة ← 2 · لعبة 360° ← <b>3 · الدليل والتقويم</b></div><div id="briefFinal"></div></div></section>
+
+<section class="view" id="v-guide"><div class="wrap page">
+ <div class="crumb">1 · القصة ← 2 · لعبة 360° ← <b>3 · الدليل والتقويم</b></div>
+ <h2 class="h2" style="margin-top:0">🗂️ دليلي الصحي المصوّر</h2>
+ <p class="muted" style="font-size:17px">بطاقة مراجعة مختصرة يمكن للمعلم عرضها أو طباعتها.</p>
+ <div class="cards4">
+  <div class="gcard"><h3>🥗 الغذاء المتوازن</h3><p>نوّع الأطعمة، وانتبه إلى أحجام الحصص والكربوهيدرات وفق الإرشادات الصحية المناسبة للطفل.</p></div>
+  <div class="gcard"><h3>💧 الماء والعادات اليومية</h3><p>الماء خيار مناسب للشرب غالبًا، وتُشجَّع العادات اليومية الصحية بحسب احتياجات الطفل.</p></div>
+  <div class="gcard"><h3>🏃 النشاط البدني</h3><p>يمكن للطفل المصاب بالسكري المشاركة في النشاط البدني مع اتباع خطته وإرشادات الإشراف الصحي.</p></div>
+  <div class="gcard"><h3>🤝 كن صديقًا داعمًا</h3><p>لا تسخر ولا تفترض أن المرض معدٍ. إذا شعر زميلك بالتوعك، أخبر المعلم فورًا ولا تعطِه دواءً أو طعامًا من نفسك.</p></div>
+ </div>
+ <div class="note"><b>رسالة للمعلم:</b> عند ظهور أعراض أو حدوث حالة طارئة، اتبع خطة الرعاية الصحية الخاصة بالطفل وإجراءات المدرسة، واطلب المساعدة المختصة. لا يعتمد هذا الدليل على تشخيص الطفل أو علاجه.</div>
+ <div class="nav2 noprint"><button class="btn line" onclick="window.print()">🖨️ طباعة الدليل / حفظ PDF</button><button class="btn" data-go="final">ابدأ التقويم الختامي ←</button></div>
+</div></section>
+
+<section class="view" id="v-final"><div class="wrap page">
+ <div class="crumb">1 · القصة ← 2 · لعبة 360° ← <b>3 · التقويم الختامي</b></div>
+ <div class="panel">
+  <div class="bar"><strong id="fnCount">السؤال 1 من 6</strong><div class="pbar"><i id="fnBar"></i></div></div>
+  <div id="fnBody"></div>
+ </div>
+</div></section>
+
+<footer class="foot"><div class="wrap foot-in">
+ <div><b style="font-size:19px">رحلة أحمد مع السكري 💙</b><div style="color:#cfe3ff">نتعلم، نتفاعل، ونساند بعضنا</div></div>
+ <div class="credits" style="margin:0"><div><small>إعداد</small><strong>عبدالرحمن كمال</strong></div><div><small>إشراف</small><strong>د. منى إبراهيم</strong></div></div>
+ <button class="btn small line" onclick="window.scrollTo(0,0)">العودة إلى الأعلى ↑</button>
+</div></footer>
+
+<div class="modal" id="modal"><div class="mcard" role="dialog" aria-modal="true"><div class="big" id="mIcon"></div><h3 id="mName"></h3><p id="mInfo"></p><button class="btn" id="mOk">تم، متابعة الاستكشاف</button></div></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id);};
+var done={story:false,vr:false,final:false};
+
+/* ================= الرسوم: شخصيات ومشاهد SVG أصلية ================= */
+var CH={
+ ahmed:{skin:"#e2ad82",hair:"#2b1b12",style:"short",shirt:"#2f6fe0",pants:"#2f3a63",bag:"#ffc93c",hat:"#8a5a2b",badge:1},
+ salma:{skin:"#efc59d",hair:"#7a4cc2",style:"hijab",shirt:"#ff8fb1",pants:"#2f3a63",badge:1},
+ yasser:{skin:"#d49a69",hair:"#1b1b1b",style:"short",shirt:"#e5483d",pants:"#2f3a55",glasses:1,hat:"#3a5fa8",badge:1},
+ teacher:{skin:"#efc59d",hair:"#17897a",style:"hijab",shirt:"#f6eed9",pants:"#17897a"},
+ mom:{skin:"#e8b98f",hair:"#b34a78",style:"hijab",shirt:"#8e5bd0",pants:"#5b3a99"},
+ omar:{skin:"#c58a5a",hair:"#3a2418",style:"short",shirt:"#f0a21b",pants:"#444b66"},
+ rana:{skin:"#f1cfaa",hair:"#6b3a1a",style:"pony",shirt:"#2fb88a",pants:"#2f3a63"}
+};
+var ARM={down:[-46,-58],up:[-62,-182],out:[-78,-98],mid:[-20,-80],wave:[-64,-172],hip:[-52,-74]};
+function person(o){
+  var s=o.s||1,sk=o.skin,hr=o.hair,m=o.mood||"smile",sh=o.shirt,g;
+  g='<g transform="translate('+o.x+','+o.y+') scale('+(o.flip?-s:s)+','+s+')">';
+  g+='<ellipse cx="0" cy="3" rx="52" ry="9" fill="rgba(0,0,0,.18)"/>';
+  if(o.bag)g+='<rect x="-44" y="-122" width="88" height="78" rx="18" fill="'+o.bag+'"/>';
+  if(o.style==="hijab")g+='<path d="M-50,-146 Q-56,-94 -32,-90 L32,-90 Q56,-94 50,-146Z" fill="'+hr+'"/>';
+  g+='<rect x="-24" y="-52" width="19" height="50" rx="8" fill="'+o.pants+'"/><rect x="5" y="-52" width="19" height="50" rx="8" fill="'+o.pants+'"/>';
+  g+='<ellipse cx="-17" cy="-3" rx="16" ry="8" fill="#2a2a3a"/><ellipse cx="17" cy="-3" rx="16" ry="8" fill="#2a2a3a"/>';
+  g+='<rect x="-36" y="-128" width="72" height="84" rx="28" fill="'+sh+'"/>';
+  g+='<path d="M-13,-128 Q0,-113 13,-128" stroke="rgba(0,0,0,.2)" stroke-width="4" fill="none"/>';
+  if(o.badge)g+='<path d="M-20,-104 l3,7 l8,1 l-6,5 l2,8 l-7,-4 l-7,4 l2,-8 l-6,-5 l8,-1z" fill="#ffd23f" stroke="#c9961b" stroke-width="1.5"/>';
+  [-1,1].forEach(function(sd){
+    var e=ARM[(sd<0?o.armL:o.armR)||"down"],ex=sd<0?e[0]:-e[0],ey=e[1];
+    g+='<path d="M'+(sd*30)+',-112 L'+ex+','+ey+'" stroke="'+sh+'" stroke-width="22" stroke-linecap="round"/><circle cx="'+ex+'" cy="'+ey+'" r="11" fill="'+sk+'"/>';
+  });
+  g+='<rect x="-9" y="-136" width="18" height="16" fill="'+sk+'"/>';
+  if(o.style==="hijab"){
+    g+='<path d="M-47,-152 Q-50,-203 0,-203 Q50,-203 47,-152 Q47,-116 0,-112 Q-47,-116 -47,-152Z" fill="'+hr+'"/>';
+    g+='<ellipse cx="0" cy="-153" rx="30" ry="34" fill="'+sk+'"/>';
+  }else{
+    if(o.style==="pony")g+='<ellipse cx="42" cy="-156" rx="12" ry="25" fill="'+hr+'" transform="rotate(-15 42 -156)"/>';
+    g+='<circle cx="-37" cy="-154" r="7" fill="'+sk+'"/><circle cx="37" cy="-154" r="7" fill="'+sk+'"/>';
+    g+='<circle cx="0" cy="-156" r="37" fill="'+sk+'"/>';
+    g+='<path d="M-39,-158 Q-44,-201 0,-199 Q44,-201 39,-158 Q24,-181 0,-179 Q-24,-181 -39,-158Z" fill="'+hr+'"/>';
+  }
+  if(o.hat&&o.style!=="hijab"){g+='<path d="M-40,-181 Q-36,-219 0,-217 Q36,-219 40,-181Z" fill="'+o.hat+'"/><rect x="-48" y="-185" width="96" height="11" rx="5" fill="'+o.hat+'" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle cx="0" cy="-212" r="4.5" fill="#ffd23f"/>';}
+  g+='<circle cx="-21" cy="-143" r="6" fill="rgba(255,110,110,.35)"/><circle cx="21" cy="-143" r="6" fill="rgba(255,110,110,.35)"/>';
+  if(m==="laugh"){
+    g+='<path d="M-20,-158 Q-13,-166 -6,-158" stroke="#222" stroke-width="3.5" fill="none"/><path d="M6,-158 Q13,-166 20,-158" stroke="#222" stroke-width="3.5" fill="none"/>';
+  }else{
+    g+='<ellipse cx="-13" cy="-158" rx="4.8" ry="6.4" fill="#222"/><ellipse cx="13" cy="-158" rx="4.8" ry="6.4" fill="#222"/><circle cx="-11.5" cy="-160.5" r="1.7" fill="#fff"/><circle cx="14.5" cy="-160.5" r="1.7" fill="#fff"/>';
+  }
+  if(m==="worry"||m==="sad")g+='<path d="M-23,-167 L-6,-174" stroke="#3a2a22" stroke-width="3" stroke-linecap="round"/><path d="M23,-167 L6,-174" stroke="#3a2a22" stroke-width="3" stroke-linecap="round"/>';
+  var mp={smile:'<path d="M-12,-139 Q0,-127 12,-139" stroke="#8a3b2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>',
+   open:'<path d="M-12,-141 Q0,-120 12,-141Z" fill="#8a3b2a"/><path d="M-6,-131 Q0,-126 6,-131" fill="#ff8a8a"/>',
+   laugh:'<path d="M-14,-142 Q0,-116 14,-142Z" fill="#8a3b2a"/>',
+   worry:'<path d="M-9,-132 Q0,-140 9,-132" stroke="#8a3b2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>',
+   sad:'<path d="M-10,-131 Q0,-141 10,-131" stroke="#8a3b2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>'};
+  g+=mp[m]||mp.smile;
+  if(o.glasses)g+='<circle cx="-13" cy="-158" r="12.5" fill="rgba(255,255,255,.25)" stroke="#333" stroke-width="3"/><circle cx="13" cy="-158" r="12.5" fill="rgba(255,255,255,.25)" stroke="#333" stroke-width="3"/><path d="M-1,-158 L1,-158" stroke="#333" stroke-width="3"/>';
+  return g+'</g>';
+}
+function P(k,o){var r={},b=CH[k],a;for(a in b)r[a]=b[a];for(a in o)r[a]=o[a];return person(r);}
+/* خلفيات */
+function sky(){return '<defs><linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fcfff"/><stop offset="1" stop-color="#e8f7ff"/></linearGradient></defs><rect width="800" height="420" fill="url(#gSky)"/>';}
+function cloud(x,y,s){return '<g transform="translate('+x+','+y+') scale('+s+')" fill="#fff" opacity=".95"><ellipse cx="0" cy="0" rx="46" ry="18"/><ellipse cx="-24" cy="-12" rx="24" ry="18"/><ellipse cx="14" cy="-18" rx="28" ry="22"/></g>';}
+function tree(x,y,s){return '<g transform="translate('+x+','+y+') scale('+s+')"><rect x="-10" y="-70" width="20" height="72" fill="#8a5a2b"/><circle cx="0" cy="-92" r="44" fill="#3fa65a"/><circle cx="-34" cy="-70" r="30" fill="#4bbd68"/><circle cx="34" cy="-70" r="30" fill="#4bbd68"/></g>';}
+function school(x,y){return '<g transform="translate('+x+','+y+')"><rect x="0" y="40" width="230" height="130" fill="#f6dba5"/><rect x="-12" y="20" width="254" height="26" rx="6" fill="#d9534f"/><rect x="88" y="90" width="54" height="80" rx="8" fill="#2f6fe0"/><rect x="20" y="70" width="46" height="40" rx="6" fill="#bfe6ff" stroke="#fff" stroke-width="4"/><rect x="164" y="70" width="46" height="40" rx="6" fill="#bfe6ff" stroke="#fff" stroke-width="4"/><rect x="113" y="-20" width="4" height="46" fill="#7a5a3a"/><path d="M117,-20 L150,-8 L117,4Z" fill="#ffc93c"/></g>';}
+var BG={
+ gate:function(){return sky()+'<circle cx="700" cy="70" r="38" fill="#ffd24d"/>'+cloud(180,80,1)+cloud(430,50,.8)+'<rect y="300" width="800" height="120" fill="#7bd06f"/><rect y="372" width="800" height="48" fill="#d9c9a8"/>'+school(540,180)+tree(60,330,1);},
+ classroom:function(){return '<rect width="800" height="420" fill="#d7ecff"/><rect y="322" width="800" height="98" fill="#e6c18f"/><rect x="238" y="46" width="324" height="160" rx="10" fill="#2e6e52" stroke="#b5793a" stroke-width="10"/><path d="M280,110 q30,-34 60,0 t60,0 t60,0 t60,0" stroke="#fff" stroke-width="5" fill="none" opacity=".85"/><circle cx="300" cy="166" r="16" fill="none" stroke="#ffe08a" stroke-width="4"/><path d="M470,150 l22,-30 l22,30z" fill="none" stroke="#ff9f9f" stroke-width="4"/>'+
+   '<circle cx="400" cy="24" r="17" fill="#fff" stroke="#2f2a78" stroke-width="4"/><path d="M400,24 L400,12 M400,24 L410,28" stroke="#2f2a78" stroke-width="3"/>'+
+   [40,630].map(function(x){return '<rect x="'+x+'" y="70" width="130" height="150" rx="8" fill="#fff"/><rect x="'+(x+10)+'" y="80" width="110" height="130" fill="#9fdcff"/><path d="M'+(x+65)+',80 V210 M'+(x+10)+',145 H'+(x+120)+'" stroke="#fff" stroke-width="5"/><circle cx="'+(x+88)+'" cy="108" r="12" fill="#ffd24d"/>';}).join("")+
+   '<rect x="70" y="276" width="130" height="14" rx="4" fill="#b5793a"/><rect x="82" y="290" width="8" height="40" fill="#8a5a2b"/><rect x="180" y="290" width="8" height="40" fill="#8a5a2b"/><rect x="600" y="276" width="130" height="14" rx="4" fill="#b5793a"/><rect x="612" y="290" width="8" height="40" fill="#8a5a2b"/><rect x="710" y="290" width="8" height="40" fill="#8a5a2b"/>';},
+ cafe:function(){
+   var it='<g transform="translate(110,244)"><ellipse cx="0" cy="-14" rx="40" ry="14" fill="#c98a3f"/><rect x="-36" y="-26" width="72" height="8" rx="4" fill="#4caf50"/><ellipse cx="0" cy="-32" rx="38" ry="14" fill="#e2a65a"/></g>'+
+   '<circle cx="270" cy="216" r="28" fill="#e5322d"/><path d="M270,190 q4,-14 12,-18" stroke="#6b3a1a" stroke-width="5" fill="none"/><ellipse cx="288" cy="188" rx="12" ry="6" fill="#2fb34a"/>'+
+   '<rect x="380" y="164" width="52" height="80" rx="4" fill="#fff"/><rect x="380" y="164" width="52" height="24" fill="#4aa3df"/><circle cx="406" cy="214" r="12" fill="#4aa3df"/>'+
+   '<rect x="530" y="150" width="40" height="94" rx="14" fill="#58c4ff"/><rect x="538" y="128" width="24" height="28" rx="6" fill="#2a8fd0"/>'+
+   '<rect x="650" y="160" width="76" height="84" rx="10" fill="#ff9f1c"/><rect x="650" y="160" width="76" height="22" rx="10" fill="#ffbf47"/><circle cx="688" cy="212" r="16" fill="#ffd96b"/><path d="M706,160 L720,120 L738,120" stroke="#2f2a78" stroke-width="6" fill="none"/>';
+   var fl='';for(var i=0;i<20;i++){fl+='<path d="M'+(i*40)+',0 L'+(i*40+30)+',0 L'+(i*40+15)+',34Z" fill="'+["#ff6b57","#ffc93c","#2f6fe0","#1fb58f"][i%4]+'"/>';}
+   return '<rect width="800" height="420" fill="#ffe6a0"/>'+fl+'<rect y="70" width="800" height="14" fill="#2f6fe0" opacity=".25"/><rect y="244" width="800" height="92" fill="#b5793a"/><rect y="236" width="800" height="14" fill="#d49a58"/><rect y="336" width="800" height="84" fill="#f0c28b"/>'+it;},
+ playground:function(bench){return sky()+'<circle cx="90" cy="70" r="38" fill="#ffd24d"/>'+cloud(300,70,1)+cloud(600,110,.8)+'<rect y="290" width="800" height="130" fill="#6cc56a"/><rect y="372" width="800" height="48" fill="#e0c9a0"/>'+tree(740,320,1.2)+'<path d="M560,150 L690,310" stroke="#ff6b57" stroke-width="20" stroke-linecap="round"/><rect x="548" y="130" width="40" height="170" rx="6" fill="#2f6fe0"/><path d="M548,130 h40" stroke="#fff" stroke-width="6"/>'+(bench?'<rect x="250" y="300" width="160" height="14" rx="4" fill="#8a5a2b"/><rect x="258" y="314" width="10" height="40" fill="#6e4520"/><rect x="392" y="314" width="10" height="40" fill="#6e4520"/><rect x="250" y="262" width="160" height="12" rx="4" fill="#8a5a2b"/>':'');},
+ office:function(){return '<rect width="800" height="420" fill="#f7e5c8"/><rect y="330" width="800" height="90" fill="#d9b98a"/><rect x="40" y="70" width="140" height="150" rx="8" fill="#fff"/><rect x="50" y="80" width="120" height="130" fill="#9fdcff"/><path d="M110,80 V210 M50,145 H170" stroke="#fff" stroke-width="5"/>'+
+   '<rect x="320" y="50" width="130" height="180" rx="8" fill="#fff" stroke="#c8c8c8" stroke-width="4"/><path d="M340,150 H430 M340,172 H430 M340,194 H410" stroke="#bbb" stroke-width="5"/><path d="M385,76 q-22,30 0,46 q22,-16 0,-46z" fill="#3787ed"/>'+
+   '<rect x="480" y="262" width="300" height="20" rx="6" fill="#8a5a2b"/><rect x="500" y="282" width="12" height="68" fill="#6e4520"/><rect x="750" y="282" width="12" height="68" fill="#6e4520"/><rect x="540" y="236" width="70" height="26" rx="4" fill="#fff"/><rect x="620" y="244" width="30" height="18" rx="3" fill="#ff6b57"/>'+
+   '<rect x="215" y="290" width="40" height="40" rx="6" fill="#c56a3a"/><circle cx="235" cy="270" r="22" fill="#3fa65a"/><circle cx="218" cy="282" r="16" fill="#4bbd68"/><circle cx="252" cy="282" r="16" fill="#4bbd68"/>';},
+ ending:function(){var cf='',i,cs=["#ff6b57","#ffc93c","#2f6fe0","#1fb58f","#ff8fb1"];for(i=0;i<40;i++){cf+='<rect x="'+((i*97)%780+10)+'" y="'+((i*53)%200+20)+'" width="9" height="14" rx="2" fill="'+cs[i%5]+'" transform="rotate('+(i*37%90)+' '+((i*97)%780)+' '+((i*53)%200)+')"/>';}
+   return sky()+'<circle cx="690" cy="70" r="36" fill="#ffd24d"/>'+cloud(130,60,1)+'<path d="M80,300 A320,260 0 0 1 720,300" stroke="#ff6b57" stroke-width="16" fill="none"/><path d="M100,300 A300,240 0 0 1 700,300" stroke="#ffc93c" stroke-width="16" fill="none"/><path d="M120,300 A280,220 0 0 1 680,300" stroke="#1fb58f" stroke-width="16" fill="none"/><path d="M140,300 A260,200 0 0 1 660,300" stroke="#2f6fe0" stroke-width="16" fill="none"/><rect y="296" width="800" height="124" fill="#6cc56a"/><rect y="376" width="800" height="44" fill="#e0c9a0"/>'+cf;}
+};
+function mag(x,y,s,rot){return '<g transform="translate('+x+','+y+') rotate('+(rot||0)+') scale('+s+')"><rect x="-7" y="44" width="14" height="62" rx="7" fill="#8a5a2b"/><circle cx="0" cy="0" r="46" fill="rgba(160,220,255,.45)" stroke="#ffc93c" stroke-width="12"/><path d="M-26,-14 Q-16,-30 2,-32" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".85"/></g>';}
+function svg(label,body){return '<svg class="illus" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" role="img" aria-label="'+label+'" xmlns="http://www.w3.org/2000/svg">'+body+'</svg>';}
+var ART={
+ cover:function(){return svg("فريق المحققين الصغار: أحمد وسلمى وياسر",BG.playground(false)+P("salma",{x:190,y:402,s:1,mood:"open",armR:"wave"})+P("ahmed",{x:400,y:406,s:1.12,mood:"open",armR:"up"})+P("yasser",{x:610,y:402,s:1,flip:true,mood:"open",armL:"wave"})+mag(690,150,1.15,12)+mag(110,140,.8,-12));},
+ gate:function(){return svg("أحمد يودّع أمه عند باب المدرسة",BG.gate()+P("mom",{x:210,y:396,s:1.08,armR:"wave"})+P("ahmed",{x:400,y:398,s:.86,mood:"open",armL:"wave"}));},
+ classroom:function(){return svg("التلاميذ في الصف مع المعلمة",BG.classroom()+P("teacher",{x:120,y:396,s:1.08})+P("salma",{x:330,y:398,s:.88,mood:"open",armR:"mid"})+P("ahmed",{x:530,y:398,s:.88,mood:"worry"})+P("yasser",{x:700,y:398,s:.84,flip:true}));},
+ cafe:function(){return svg("التلاميذ في مقصف المدرسة",BG.cafe()+mag(120,150,.7,-14)+P("salma",{x:170,y:402,s:.92,armR:"mid"})+P("ahmed",{x:400,y:402,s:.92,mood:"open"})+P("yasser",{x:630,y:402,s:.92,flip:true,armL:"mid"}));},
+ office:function(){return svg("أحمد مع معلمته يتابع خطته الصحية",BG.office()+P("yasser",{x:140,y:398,s:.84,mood:"open",armR:"mid"})+P("ahmed",{x:350,y:398,s:.9})+P("teacher",{x:600,y:398,s:1.1,armL:"mid"}));},
+ unwell:function(){return svg("أحمد يجلس متعبًا وياسر يطلب المساعدة",BG.playground(true)+P("ahmed",{x:330,y:372,s:.84,mood:"sad",armL:"mid",armR:"mid"})+P("yasser",{x:520,y:398,s:.9,mood:"worry",armR:"out",flip:true})+P("teacher",{x:690,y:372,s:.6}));},
+ bully:function(){return svg("زميل يسخر من أحمد وسلمى تتدخل",BG.playground(false)+P("omar",{x:190,y:398,s:.9,mood:"laugh",armR:"out"})+P("ahmed",{x:430,y:398,s:.9,mood:"sad"})+P("salma",{x:640,y:398,s:.9,mood:"worry",armL:"mid",flip:true}));},
+ end:function(){return svg("التلاميذ يحتفلون معًا بالتعاون والاحترام",BG.ending()+P("rana",{x:110,y:398,s:.82,armR:"up"})+P("salma",{x:260,y:398,s:.86,armL:"up"})+P("ahmed",{x:400,y:402,s:1,mood:"open",armL:"up",armR:"up"})+P("yasser",{x:545,y:398,s:.86,mood:"open",armR:"up"})+P("omar",{x:690,y:398,s:.84,armL:"up"}));}
+};
+function heroSVG(){
+  return '<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="أحمد وأصدقاؤه" style="display:block;width:100%;height:100%"><defs><radialGradient id="gh" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#4a56d0"/><stop offset=".6" stop-color="#1d2566"/><stop offset="1" stop-color="#121847"/></radialGradient></defs><rect width="400" height="400" fill="url(#gh)"/>'+
+  '<circle cx="60" cy="70" r="3" fill="#fff"/><circle cx="330" cy="60" r="2.5" fill="#ffe08a"/><circle cx="360" cy="150" r="2" fill="#fff"/><circle cx="40" cy="170" r="2" fill="#ffe08a"/><path d="M200,36 l7,16 l17,2 l-13,11 l4,17 l-15,-9 l-15,9 l4,-17 l-13,-11 l17,-2z" fill="#ffc93c"/>'+
+  '<path d="M322,92 q-16,24 0,34 q16,-10 0,-34z" fill="#58c4ff"/><circle cx="82" cy="104" r="20" fill="#e5322d"/><path d="M82,84 q4,-12 12,-14" stroke="#6b3a1a" stroke-width="4" fill="none"/><ellipse cx="98" cy="82" rx="9" ry="5" fill="#2fb34a"/>'+
+  '<rect x="0" y="372" width="400" height="40" fill="#2a3280"/>'+
+  P("salma",{x:92,y:392,s:.86,armR:"wave"})+P("yasser",{x:312,y:392,s:.86,flip:true,armL:"wave"})+P("ahmed",{x:202,y:402,s:1.22,mood:"open",armL:"up",armR:"up"})+'</svg>';
+}
+
+
+/* ================= مكوّن السؤال (3 اختيارات مع أيقونات) ================= */
+function mcq(host,st,q,opts,onUpdate){
+  host.innerHTML='<p class="q"></p><div class="opts"></div><div class="fb" aria-live="polite"></div><div class="retry"></div>';
+  host.querySelector(".q").textContent=q;
+  var box=host.querySelector(".opts"),fb=host.querySelector(".fb"),rt=host.querySelector(".retry");
+  function paint(){
+    box.innerHTML="";fb.className="fb";fb.textContent="";rt.innerHTML="";
+    opts.forEach(function(o,i){
+      var b=document.createElement("button");b.type="button";b.className="opt";
+      if(o.i){var ic=document.createElement("span");ic.className="oi";ic.textContent=o.i;ic.setAttribute("aria-hidden","true");b.appendChild(ic);}
+      var tx=document.createElement("span");tx.textContent=o.t;b.appendChild(tx);
+      if(st.done){b.disabled=true;if(o.ok)b.classList.add("ok");}
+      else if(st.sel!=null){b.disabled=true;if(st.sel===i)b.classList.add("no");}
+      b.onclick=function(){choose(i);};box.appendChild(b);
+    });
+    if(st.done){var c=opts.filter(function(o){return o.ok;})[0];fb.className="fb good";fb.textContent="🎉 "+c.why;}
+    else if(st.sel!=null){
+      fb.className="fb bad";fb.textContent="💡 "+opts[st.sel].why;
+      var r=document.createElement("button");r.type="button";r.className="btn small";r.textContent="أعد المحاولة";
+      r.onclick=function(){st.sel=null;paint();};rt.appendChild(r);
+    }
+  }
+  function choose(i){
+    if(st.done)return;st.tries=(st.tries||0)+1;
+    if(opts[i].ok){st.done=true;st.first=(st.tries===1);st.sel=null;}else{st.sel=i;}
+    paint();if(onUpdate)onUpdate(st);
+  }
+  paint();
+}
+
+/* ================= بطاقات الدليل الإجرائي ================= */
+function brief(hostId,d){
+  var li=function(a){return "<ul>"+a.map(function(x){return "<li>"+x+"</li>";}).join("")+"</ul>";};
+  $(hostId).innerHTML='<div class="brief"><span class="tag">دليل النشاط قبل البدء</span><h2>'+d.title+'</h2><p style="margin:0;font-size:17px">'+d.intro+'</p>'+
+  '<div class="bgrid">'+
+  '<div class="bbox"><b>🎯 الهدف التعليمي</b><p>'+d.goal+'</p></div>'+
+  '<div class="bbox"><b>⏱️ المدة الزمنية</b><p>'+d.time+'</p></div>'+
+  '<div class="bbox"><b>📝 أداة التقييم</b><p>'+d.tool+'</p></div>'+
+  '<div class="bbox"><b>👩‍🏫 دور المعلم</b>'+li(d.teacher)+'</div>'+
+  '<div class="bbox"><b>🧒 دور التلميذ</b>'+li(d.student)+'</div>'+
+  '<div class="bbox"><b>✅ معايير النجاح</b>'+li(d.success)+'</div>'+
+  (d.how?'<div class="bbox wide"><b>▶️ تعليمات اللعب</b><p>'+d.how+'</p></div>':'')+
+  '</div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" data-go="'+d.go+'">'+d.start+'</button>'+(d.extra||"")+'</div></div>';
+}
+brief("briefStory",{
+ title:"القصة التعليمية المصوّرة «أحمد وفريق المحققين الصغار»",
+ intro:"قصة مصوّرة في ثماني صفحات وخمس قضايا، يتابع فيها التلميذ أحمد وصديقيه، ثم يجيب عن سؤال في كل قضية.",
+ goal:"أن يحدد التلميذ التصرفات الصحية والاجتماعية الصحيحة في مواقف يومية تتعلق بطفل مصاب بالسكري.",
+ time:"5 إلى 7 دقائق",
+ tool:"ملاحظة اختيارات التلميذ، وإجاباته عن أسئلة القصة.",
+ teacher:["يهيّئ التلاميذ للموضوع بسؤال تمهيدي.","يوضح أن السكري مرض غير معدٍ.","يشرح طريقة استخدام القصة، ويوجّه التلاميذ دون إعطائهم الإجابات مباشرة.","يصحح المفاهيم الخاطئة بعد إجابات التلاميذ."],
+ student:["يتابع أحداث القصة المصوّرة.","يختار الإجابات في المواقف التفاعلية.","يفسّر اختياراته ويستنتج السلوك الصحيح."],
+ success:["يحدد التصرف الصحيح في ثلاثة مواقف على الأقل.","يوضح سبب اختياره في موقف واحد."],
+ how:"اقرأ الصفحة وانظر إلى الصورة، ثم اضغط على الإجابة التي تراها صحيحة، واقرأ التغذية الراجعة، ثم اضغط «التالي».",
+ start:"ابدأ القصة ←",go:"story"});
+brief("briefVr",{
+ title:"لعبة «مهمة أحمد في مقصف المدرسة» بزاوية 360°",
+ intro:"تجربة استكشاف بعدسة المحقق في مقصف افتراضي، فيها محطتان: استكشف المقصف، ثم ضع الغذاء في الصحن.",
+ goal:"أن يختار التلميذ أمثلة مناسبة من الأطعمة ضمن وجبة متنوعة ومتوازنة، وأن يدرك أن الاختيارات الغذائية تعتمد على التوازن والخطة الصحية لكل طفل.",
+ time:"7 إلى 10 دقائق",
+ tool:"سجل ملاحظة مبسط (قائمة تحقق للمعلم) أثناء اللعبة، مع أسئلة قصيرة في نهايتها.",
+ teacher:["يراجع بإيجاز الرسائل الأساسية التي وردت في القصة.","يوضح طريقة استكشاف المشهد واستخدام العدسة.","يشجع التلاميذ على تفسير اختياراتهم بدلًا من تخمين الإجابات.","يناقش الإجابات بعد انتهاء اللعبة، ويصحح المفاهيم غير الدقيقة."],
+ student:["يستكشف المقصف الافتراضي بعدسة المحقق.","يبحث عن عناصر الطعام ويضغط على نقاط الأدلة.","يختار مكونات وجبة متنوعة ومتوازنة في الصحن.","يشرح بعض اختياراته."],
+ success:["يختار التلميذ مجموعة متنوعة من الأطعمة.","يوضح أن الاختيارات الغذائية تعتمد على التوازن والاحتياجات الصحية، وليس على منع مجموعة كاملة من الأطعمة للجميع.","يحدد التصرف الصحيح في موقف صحي واحد على الأقل (في التقويم الختامي)."],
+ how:"«حرّك المشهد لاستكشاف المقصف، وضع الأشياء داخل عدسة المحقق، واضغط على العناصر المضيئة». يمكنك السحب بإصبعك أو بالفأرة، أو استخدام الأسهم. وإن لم يعمل المشهد على الجهاز فاستخدم «العرض العادي».",
+ start:"ابدأ تجربة 360° ←",go:"vr",
+ extra:'<button class="btn line" data-go="story">← العودة إلى القصة</button>'});
+brief("briefFinal",{
+ title:"الدليل الصحي المصوّر والتقويم الختامي",
+ intro:"محطة المراجعة الأخيرة: بطاقات تلخّص الرسائل، ثم ستة أسئلة مصوّرة تتضمن مواقف «ماذا ستفعل؟».",
+ goal:"أن يحدد التلميذ التصرف الصحيح في مواقف صحية واجتماعية تخص زميلًا مصابًا بالسكري، وأن يقيس فهمه للرسائل الأساسية.",
+ time:"من 6 إلى 8 دقائق",
+ tool:"أسئلة التقويم الختامي، وسؤال شفهي من المعلم، وقائمة ملاحظة المعلم.",
+ teacher:["يعرض الدليل ويلخص الرسائل.","يطرح سؤالًا ختاميًا للتأكد من الفهم.","يلاحظ الإجابات ويوضح سبب صحة كل اختيار."],
+ student:["يقرأ بطاقات الدليل ويذكر ما تعلمه.","يجيب عن أسئلة التقويم ويذكر السبب."],
+ success:["يجيب بصورة صحيحة عن أربعة أسئلة من ستة على الأقل.","يحدد التصرف الصحيح عند توعك الزميل."],
+ start:"افتح الدليل الصحي ←",go:"guide"});
+
+/* ================= رسوم الصفحات ================= */
+function fillArt(){[].forEach.call(document.querySelectorAll("[data-art]"),function(e){if(!e.firstChild&&ART[e.dataset.art]){e.innerHTML=ART[e.dataset.art]();var s=e.querySelector("svg");if(s)s.setAttribute("preserveAspectRatio","xMidYMax slice");}});}
+fillArt();
+
+/* ================= التنقل ================= */
+var NAVMAP={home:"home",about:"about",sb:"story",story:"story",vb:"vr",vr:"vr",fb:"final",guide:"final",final:"final"};
+var VIEWS=["home","sb","story","vb","vr","fb","guide","final"];
+function go(v){
+  if(v==="about"){go("home");setTimeout(function(){$("about").scrollIntoView({behavior:"smooth"});},80);return;}
+  if(VIEWS.indexOf(v)<0)v="home";
+  VIEWS.forEach(function(n){$("v-"+n).classList.toggle("on",n===v);});
+  [].forEach.call(document.querySelectorAll("[data-nav]"),function(b){b.classList.toggle("on",b.dataset.nav===NAVMAP[v]);});
+  $("sky").classList.toggle("compact",v!=="home");
+  if(v==="story")renderStory();
+  if(v==="vr"){showStation(vr.st);setTimeout(resize,60);}
+  if(v==="final")renderFinal();
+  window.scrollTo(0,0);
+  if(location.hash!=="#"+v)history.replaceState(null,"","#"+v);
+}
+document.addEventListener("click",function(e){var t=e.target.closest("[data-go]");if(t){e.preventDefault();go(t.dataset.go);}});
+function mark(){
+  $("ckStory").textContent=done.story?"✓":"";$("ckVr").textContent=done.vr?"✓":"";$("ckFinal").textContent=done.final?"✓":"";
+  $("pcStory").classList.toggle("finished",done.story);$("pcVr").classList.toggle("finished",done.vr);$("pcFinal").classList.toggle("finished",done.final);
+  $("rtStory").classList.toggle("done",done.story);$("rtVr").classList.toggle("done",done.vr);$("rtFinal").classList.toggle("done",done.final);
+}
+/* شريط العرض في الرئيسية */
+var bi=0,slides=[].slice.call(document.querySelectorAll(".slide")),bt=null;
+$("bDots").innerHTML=slides.map(function(_,i){return '<button aria-label="الشريحة '+(i+1)+'" data-b="'+i+'"></button>';}).join("");
+function showB(i){bi=(i+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle("on",k===bi);});[].forEach.call($("bDots").children,function(d,k){d.classList.toggle("on",k===bi);});}
+$("bNext").onclick=function(){showB(bi+1);};$("bPrev").onclick=function(){showB(bi-1);};
+$("bDots").onclick=function(e){var b=e.target.closest("[data-b]");if(b)showB(+b.dataset.b);};
+function autoB(){clearInterval(bt);bt=setInterval(function(){if($("v-home").classList.contains("on"))showB(bi+1);},6500);}
+$("banner").addEventListener("pointerenter",function(){clearInterval(bt);});$("banner").addEventListener("pointerleave",autoB);
+showB(0);autoB();
+
+/* ================= القصة المصوّرة ================= */
+var SPK={"أحمد":"#2f6fe0","سلمى":"#d6428a","ياسر":"#e5483d","المعلمة":"#17897a","الأم":"#8e5bd0","عمر":"#e08a00"};
+var SC=[
+ {t:"غلاف القصة: فريق المحققين الصغار",art:"cover",
+  txt:"هذه قصة أحمد وصديقيه سلمى وياسر. أطلقوا على أنفسهم «فريق المحققين الصغار»، ومهمتهم أن يكتشفوا كيف نكون أصدقاء داعمين لكل زميل في المدرسة. هيا نتابع القضايا الخمس!",
+  dlg:[["أحمد","أنا مستعد! لنكشف أسرار الصداقة الحقيقية."],["سلمى","وأنا أحمل عدستي السحرية."],["ياسر","وأنا أحمل دفتر الملاحظات!"]]},
+ {t:"صباح الفريق",art:"gate",
+  txt:"استيقظ أحمد في صباح جميل، وارتدى زيّه المدرسي وقبعة المحقق، وحمل حقيبته الصفراء. أحمد تلميذ في الصف الثالث، يحب كرة القدم والرسم، وهو مصاب بالسكري. وعند باب المدرسة ودّعته أمه.",
+  dlg:[["الأم","لا تنسَ خطتك الصحية يا أحمد، وإذا احتجتَ إلى شيء فأخبر معلمتك."],["أحمد","لن أنسى يا أمي، وسأخبرها. إلى اللقاء!"]],
+  fact:{h:"هل تعلم؟ ما هو السكري؟",t:"السكري حالة صحية يحتاج فيها الجسم إلى مساعدة ليستفيد من السكر (الجلوكوز) الذي يمنحنا الطاقة. لذلك يتبع بعض الأطفال خطة صحية تشمل الغذاء والنشاط ومتابعة مستوى السكر، وقد تشمل دواءً أو الإنسولين بإرشاد الطبيب. والسكري غير معدٍ."}},
+ {t:"القضية 1: هل السكري معدٍ؟",art:"classroom",
+  txt:"دخل أحمد الصف، فرحّبت به المعلمة. وفي حصة التعارف، شرح أحمد بهدوء أنه مصاب بالسكري، وأنه يتبع خطة صحية يضعها طبيبه مع أسرته. فاستغرب بعض التلاميذ.",
+  dlg:[["سلمى","هل السكري ينتقل بالعدوى يا أحمد؟ هل نبتعد عنك؟"]],
+  q:"ماذا نقول لسلمى؟",
+  o:[{i:"🙅",t:"«نعم، فلنبتعد عن أحمد».",why:"السكري غير معدٍ، فلا ينتقل باللمس أو اللعب أو الجلوس بجانب أحمد. فكّر مرة أخرى."},
+     {i:"🤝",t:"«لا، السكري غير معدٍ، ونستطيع اللعب مع أحمد باحترام».",ok:1,why:"صحيح! السكري غير معدٍ، ونعامل أحمد باحترام كأي صديق."},
+     {i:"🤐",t:"«لا تسألي، فهذا ليس مهمًا».",why:"السؤال بأدب يساعدنا على الفهم. الأفضل أن نتعلم المعلومة الصحيحة."}],
+  after:"ابتسم أحمد وقال: «شكرًا لأنكم فهمتم!». ثم جلست سلمى بجانبه، وبدأ الجميع يرسمون معًا."},
+ {t:"القضية 2: لغز الوجبات",art:"cafe",
+  txt:"في الاستراحة، تحدّث الأطفال عن وجباتهم. أحضرت سلمى خضراوات وخبزًا، وأحضر ياسر بيضًا وتفاحة، وأحضر أحمد وجبته التي جهّزتها أسرته له.",
+  dlg:[["سلمى","معي خضراوات وخبز، وأحب الماء."],["ياسر","ومعي بيض وتفاحة!"],["أحمد","ووجبتي جهّزتها أمي حسب خطتي الصحية."]],
+  fact:{h:"هل تعلم؟",t:"الوجبة المتوازنة تجمع الحبوب والبروتين والخضراوات والفاكهة والألبان. وليس لكل الأطفال المصابين بالسكري الخطة نفسها."},
+  q:"ما الفكرة الصحيحة عن الطعام؟",
+  o:[{i:"🥗",t:"كل طفل يختار أطعمة متنوعة، وأحمد يأكل وفق خطته الصحية.",ok:1,why:"أحسنت! الغذاء المتنوع مهم للجميع، واحتياجات أحمد تحددها خطته الصحية."},
+     {i:"🚫",t:"نقول إن أحمد ممنوع من كل الحلويات دائمًا.",why:"ليس كل طفل مصاب بالسكري ممنوعًا من كل الحلويات؛ فالخطة تختلف من طفل لآخر. فكّر من جديد."},
+     {i:"🍬",t:"نعطي أحمد من طعامنا دون أن نسأل.",why:"قد لا يناسب طعامنا خطة أحمد الصحية، لذلك نترك له ولأسرته القرار."}],
+  after:"تبادل الأطفال الحديث عن الأطعمة التي يحبونها، وأكل أحمد وجبته مبتسمًا."},
+ {t:"القضية 3: سرّ الخطة الصحية",art:"office",
+  txt:"بعد الاستراحة، ذهب أحمد إلى معلمته في الوقت المتفق عليه ليتابع خطوات خطته. كانت المعلمة تعرف الخطة وتساعده. رآه ياسر، فاقترب بفضول.",
+  dlg:[["ياسر","إلى أين تذهب يا أحمد؟ هل أقرر لك ماذا تفعل؟"]],
+  q:"ماذا نفعل كأصدقاء؟",
+  o:[{i:"😆",t:"نضحك ونسأل أسئلة محرجة.",why:"الأسئلة المحرجة قد تؤذي مشاعر أحمد. نحن نحترم خصوصيته."},
+     {i:"👑",t:"نقرر نحن ما يفعله بدلًا من أسرته ومعلمته.",why:"القرارات الصحية ليست من شأننا؛ فهي لأحمد وأسرته والبالغين المسؤولين."},
+     {i:"💙",t:"نحترم خطته، ونتركه يتابعها مع البالغين المسؤولين.",ok:1,why:"رائع! الاحترام وترك القرارات الصحية للبالغين المسؤولين دعم حقيقي لأحمد."}],
+  after:"قال ياسر: «حسنًا، سأنتظرك لنلعب معًا». وعاد أحمد بعد قليل مبتسمًا."},
+ {t:"القضية 4: أحمد لا يشعر بأنه بخير",art:"unwell",
+  txt:"أثناء اللعب، توقف أحمد فجأة وجلس على المقعد. قال بصوت منخفض: «أشعر بدوخة وتعب». نظر ياسر إلى وجه أحمد، وتذكّر ما تعلمه فريق المحققين.",
+  dlg:[["أحمد","أشعر بدوخة وتعب… لست بخير."]],
+  fact:{h:"هل تعلم؟",t:"قد يشعر الطفل أحيانًا بدوخة أو تعب أو رجفة أو تعرّق. ولا نعرف نحن السبب أو العلاج المناسب، لذلك يتصرف البالغ المسؤول وفق خطة الطفل الصحية."},
+  q:"ماذا يفعل ياسر؟",
+  o:[{i:"💊",t:"يعطي أحمد عصيرًا أو دواءً من حقيبته.",why:"لا نعطي زميلنا طعامًا أو دواءً من عندنا؛ فالتصرف المناسب يحدده البالغون وفق خطته المعتمدة."},
+     {i:"🏃",t:"يطلب من أحمد أن يتحمل ويكمل اللعب.",why:"إذا شعر زميلك بالتوعك فلا نتجاهل ذلك. نخبر شخصًا بالغًا."},
+     {i:"🙋",t:"يخبر المعلمة فورًا، ويبقى قريبًا من أحمد بهدوء.",ok:1,why:"أحسنت! إبلاغ المعلم أو البالغ المسؤول أولًا، ثم اتباع الخطة الصحية المعتمدة."}],
+  after:"ركض ياسر إلى المعلمة وأخبرها، فجاءت بسرعة وساعدت أحمد وفق خطته الصحية المعتمدة، وتحسّن شعوره بعد قليل. وقالت المعلمة لياسر: «أحسنت! تصرفك صحيح»."},
+ {t:"القضية 5: كلمات تؤذي",art:"bully",
+  txt:"وفي نهاية اليوم، سمعت سلمى زميلًا اسمه عمر يسخر من أحمد ويضحك عليه.",
+  dlg:[["عمر","أحمد مختلف! لا أريد اللعب معه!"]],
+  q:"ماذا نفعل؟",
+  o:[{i:"😂",t:"نضحك مع الطفل حتى لا يغضب.",why:"الضحك يشجع على السخرية ويؤذي أحمد. فكّر من جديد."},
+     {i:"🛡️",t:"نقول بلطف: «لا نسخر من أحد»، ونخبر المعلمة إن استمر ذلك.",ok:1,why:"رائع! الاحترام والتعاون يمنعان التنمر، ونطلب مساعدة البالغين عند الحاجة."},
+     {i:"🙈",t:"نتجاهل الأمر.",why:"التجاهل لا يساعد أحمد. نستطيع أن نكون شجعانًا بلطف."}],
+  after:"قالت سلمى بلطف: «لا نسخر من أحد». فخجل عمر واعتذر لأحمد. وتذكّرت سلمى أنها لو استمر الأمر فستخبر المعلمة."},
+ {t:"النهاية: فريق واحد",art:"end",
+  txt:"في نهاية اليوم، اجتمع التلاميذ في الساحة ورسموا لوحة كبيرة عنوانها: «الاحترام والتعاون يجعلان مدرستنا أجمل». ابتسم أحمد وقال إن هذا كان أجمل أيام المدرسة. وأعلن فريق المحققين الصغار أن القضايا الخمس قد حُلّت!",
+  dlg:[["أحمد","اليوم كان أجمل أيام المدرسة!"],["سلمى","لأننا تعاونّا واحترمنا بعضنا."],["ياسر","وسنبقى فريقًا واحدًا."]]}
+];
+var CLOSE_STORY=[{i:"🙅",t:"السكري مرض معدٍ ينتقل باللمس.",why:"السكري غير معدٍ. جرّب مرة أخرى."},
+ {i:"💙",t:"السكري غير معدٍ، ونحترم زميلنا ونخبر المعلم إذا شعر بالتوعك.",ok:1,why:"صحيح! هذه هي الرسالة الأهم في القصة."},
+ {i:"💊",t:"نعطي زميلنا الدواء بأنفسنا عندما يتعب.",why:"لا نعطي دواءً من أنفسنا، بل نخبر البالغ المسؤول."}];
+var story={i:0,a:SC.map(function(){return {};}),close:{},reflect:""};
+function fresh(){story={i:0,a:SC.map(function(){return {};}),close:{},reflect:""};}
+function renderStory(){
+  var b=$("stBody"),n=SC.length;
+  if(story.i>=n){return renderStorySummary();}
+  var s=SC[story.i],a=story.a[story.i],hasQ=!!s.q;
+  $("stCount").textContent="الصفحة "+(story.i+1)+" من "+n;
+  function bar(){$("stBar").style.width=((story.i+(hasQ?(a.done?1:0):1))/(n+1)*100)+"%";}bar();
+  var html=ART[s.art]()+'<div class="sbody"><h3></h3><p class="txt"></p>';
+  if(s.dlg)html+='<div class="dlg">'+s.dlg.map(function(d){return '<div class="bub" style="border-right-color:'+(SPK[d[0]]||"#1e63e9")+'"><b style="color:'+(SPK[d[0]]||"#1e63e9")+'">'+d[0]+':</b><span>'+d[1].replace(/</g,"&lt;")+'</span></div>';}).join("")+'</div>';
+  if(s.fact)html+='<div class="factbox"><b>💡 '+s.fact.h+'</b>'+s.fact.t+'</div>';
+  html+='<div id="stQ"></div><div class="after" id="stAfter"></div><div class="nav2"><span><button class="btn line" id="stPrev">→ السابق</button> <button class="btn small line" id="stSpeak">🔊 اقرأ لي</button></span><button class="btn" id="stNext">التالي ←</button></div></div>';
+  b.innerHTML=html;
+  b.querySelector("h3").textContent=s.t;b.querySelector(".txt").textContent=s.txt;
+  var nx=$("stNext");nx.disabled=hasQ&&!a.done;
+  nx.textContent=story.i===n-1?"الملخص والسؤال الختامي ←":"التالي ←";
+  $("stPrev").disabled=story.i===0;$("stPrev").style.opacity=story.i===0?.4:1;
+  function showAfter(){if(s.after&&a.done){$("stAfter").textContent="📖 "+s.after;$("stAfter").classList.add("show");}}
+  if(hasQ){mcq($("stQ"),a,s.q,s.o,function(){nx.disabled=!a.done;bar();showAfter();});showAfter();}
+  if(!window.speechSynthesis)$("stSpeak").style.display="none";
+  $("stSpeak").onclick=function(){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(s.t+". "+s.txt);u.lang="ar-SA";u.rate=.85;speechSynthesis.speak(u);};
+  $("stPrev").onclick=function(){if(window.speechSynthesis)speechSynthesis.cancel();if(story.i>0){story.i--;renderStory();}};
+  nx.onclick=function(){if(window.speechSynthesis)speechSynthesis.cancel();story.i++;renderStory();window.scrollTo(0,0);};
+}
+function renderStorySummary(){
+  var qn=SC.filter(function(x){return x.q;}).length,ok=story.a.filter(function(x){return x.first;}).length;
+  $("stCount").textContent="الملخص";$("stBar").style.width="94%";
+  var b=$("stBody");
+  b.innerHTML=ART.end()+'<div class="sbody"><h3>🏅 حللتم القضايا الخمس!</h3><p class="txt">فريق المحققين الصغار يعرف الآن كيف يكون صديقًا داعمًا. 💙</p>'+
+  '<p class="q">أهم الرسائل الصحية</p><ul class="list"><li>السكري غير معدٍ، ويمكن اللعب مع أحمد باحترام.</li><li>احتياجات كل طفل تختلف بحسب خطته الصحية.</li><li>لا نقرر الجرعات ولا نعالج زملاءنا بأنفسنا.</li><li>إذا شعر زميلنا بالتوعك، نخبر المعلم أو البالغ المسؤول فورًا.</li><li>لا نسخر من أحد، ونتعاون.</li></ul>'+
+  '<div class="note">أجبتَ عن <b>'+ok+' من '+qn+'</b> قضايا من المحاولة الأولى. المحاولة الثانية تعلّم أيضًا!</div>'+
+  '<div id="clQ"></div><p class="q">فسّر اختيارك: لماذا نخبر المعلم ولا نعالج زميلنا بأنفسنا؟</p><textarea id="refl" placeholder="اكتب أو قل إجابتك للمعلم...">'+story.reflect.replace(/</g,"&lt;")+'</textarea>'+
+  '<div class="nav2"><span><button class="btn line" id="stBack">→ السابق</button> <button class="btn line" id="stAgain">أعد القصة</button></span><button class="btn" id="stGo360" disabled>انتقل إلى لعبة 360° ←</button></div></div>';
+  mcq($("clQ"),story.close,"سؤال ختامي: أي جملة صحيحة؟",CLOSE_STORY,function(st){$("stGo360").disabled=!st.done;if(st.done){done.story=true;mark();}});
+  $("stGo360").disabled=!story.close.done;
+  $("refl").oninput=function(){story.reflect=this.value;};
+  $("stBack").onclick=function(){story.i=SC.length-1;renderStory();};
+  $("stAgain").onclick=function(){fresh();renderStory();window.scrollTo(0,0);};
+  $("stGo360").onclick=function(){go("vb");};
+}
+
+/* ================= لعبة 360° ================= */
+var ITEMS=[
+ {n:"الخبز",e:"🍞",g:"حبوب",info:"الخبز من مجموعة الحبوب ويعطينا طاقة. نوّع بين الأنواع، والكمية المناسبة تختلف من طفل لآخر بحسب خطته الصحية."},
+ {n:"البيض",e:"🥚",g:"بروتين",info:"البيض مصدر للبروتين الذي يساعد الجسم على النمو وبناء العضلات."},
+ {n:"الخضراوات",e:"🥦",g:"خضراوات",info:"الخضراوات فيها فيتامينات وألياف. ومن الجميل أن تكون في وجبتنا بألوان مختلفة."},
+ {n:"التفاح",e:"🍎",g:"فاكهة",info:"الفاكهة فيها فيتامينات وألياف. نتناولها ضمن وجبة متنوعة."},
+ {n:"الحليب",e:"🥛",g:"ألبان",info:"الحليب ومنتجات الألبان فيها الكالسيوم الذي يقوّي العظام."},
+ {n:"العدس",e:"🥣",g:"بروتين نباتي",info:"العدس مصدر للبروتين النباتي والألياف، وطبق مفيد ضمن وجبة متنوعة."},
+ {n:"الماء",e:"💧",g:"ماء",info:"الماء رفيقنا الدائم، وغالبًا هو الخيار المناسب للشرب."},
+ {n:"العصير المحلّى",e:"🧃",g:"مشروب محلّى",sweet:1,info:"العصير المحلّى فيه سكر مضاف. نتناوله باعتدال وبحسب خطة كل طفل. وأحمد يتبع خطته الصحية، فلا نقرر نحن له."}
+];
+var vr,vrReset=function(){vr={st:1,found:{},tray:[],trayOk:false,trayFirst:null,trayTries:0,groups:0};};vrReset();
+/* --- رسم البانوراما (2048×1024، إسقاط متساوي المستطيلات) --- */
+var W=2048,H=1024,HZ=512,SP=256;
+var pano=document.createElement("canvas");pano.width=W;pano.height=H;var c=pano.getContext("2d");
+function rr(x,y,w,h,r,f){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();c.fillStyle=f;c.fill();}
+function ci(x,y,r,f){c.beginPath();c.arc(x,y,r,0,7);c.fillStyle=f;c.fill();}
+function el(x,y,rx,ry,f,rot){c.beginPath();c.ellipse(x,y,rx,ry,rot||0,0,7);c.fillStyle=f;c.fill();}
+function drawPano(){
+  var g=c.createLinearGradient(0,0,0,300);g.addColorStop(0,"#fff6dc");g.addColorStop(1,"#ffe9a8");c.fillStyle=g;c.fillRect(0,0,W,300);
+  for(var i=0;i<16;i++){rr(i*128+44,150,80,16,8,"#fff");}
+  var gw=c.createLinearGradient(0,260,0,650);gw.addColorStop(0,"#a9e6d6");gw.addColorStop(1,"#72d2bb");c.fillStyle=gw;c.fillRect(0,260,W,390);
+  c.fillStyle="#2f2a78";c.fillRect(0,260,W,10);
+  for(var k=0;k<=8;k++){var wx=k*SP;rr(wx-60,310,120,130,12,"#fff");rr(wx-50,320,100,110,8,"#bfe6ff");c.fillStyle="#fff";c.fillRect(wx-2,320,4,110);c.fillRect(wx-50,373,100,4);ci(wx+22,345,10,"#ffd24d");}
+  var cols=["#ff6b57","#ffc93c","#2f2a78","#1fb58f"];
+  for(var s=0;s<32;s++){c.fillStyle=cols[s%4];c.fillRect(s*64,570,64,12);}
+  for(var b=0;b<32;b++){c.fillStyle=cols[b%4];c.beginPath();c.moveTo(b*64,282);c.lineTo(b*64+40,282);c.lineTo(b*64+20,316);c.fill();}
+  var gf=c.createLinearGradient(0,650,0,H);gf.addColorStop(0,"#f2c58a");gf.addColorStop(1,"#d9a066");c.fillStyle=gf;c.fillRect(0,650,W,H-650);
+  c.strokeStyle="rgba(120,70,20,.22)";c.lineWidth=3;
+  for(var f=0;f<=W;f+=128){c.beginPath();c.moveTo(f,650);c.lineTo(f,H);c.stroke();}
+  for(var r=0;r<5;r++){c.beginPath();c.moveTo(0,650+r*r*20+22);c.lineTo(W,650+r*r*20+22);c.stroke();}
+  for(var t=0;t<8;t++){var cx=128+SP*t;rr(cx-116,612,232,38,10,"#8a5a2b");rr(cx-116,612,232,12,10,"#b57a3d");c.fillStyle="#6e4520";c.fillRect(cx-96,650,20,130);c.fillRect(cx+76,650,20,130);el(cx,790,118,16,"rgba(0,0,0,.16)");}
+  var x;
+  x=128;el(x,570,70,34,"#c98a3f");el(x,556,62,24,"#e2a65a");c.strokeStyle="#a86e2a";c.lineWidth=5;for(var q=-30;q<=30;q+=20){c.beginPath();c.moveTo(x+q-6,545);c.lineTo(x+q+6,565);c.stroke();}
+  x=384;rr(x-60,570,120,40,14,"#4aa3df");[-30,0,30].forEach(function(d){el(x+d,556,20,26,"#fff7e6");});
+  x=640;rr(x-62,550,124,60,12,"#b57a3d");ci(x-26,528,26,"#2fa34a");ci(x,516,30,"#3dbb58");ci(x+26,528,24,"#2fa34a");rr(x+30,512,16,50,8,"#ff8a1c");ci(x-34,558,16,"#e5322d");
+  x=896;ci(x-22,560,40,"#e5322d");ci(x+30,566,36,"#d12a25");c.strokeStyle="#6b3a1a";c.lineWidth=7;c.beginPath();c.moveTo(x-22,522);c.lineTo(x-18,500);c.stroke();el(x,512,24,10,"#2fb34a",-.5);
+  x=1152;rr(x-34,486,68,124,6,"#fff");rr(x-34,486,68,34,6,"#4aa3df");ci(x,560,18,"#4aa3df");rr(x+46,560,36,50,6,"rgba(255,255,255,.9)");rr(x+46,584,36,26,6,"#f4f0ff");
+  x=1408;rr(x-62,560,124,50,24,"#fff");el(x,562,54,18,"#d9792b");[-30,-10,12,30].forEach(function(d){ci(x+d,560,5,"#a8501a");});c.strokeStyle="rgba(255,255,255,.7)";c.lineWidth=4;c.beginPath();c.moveTo(x-20,540);c.quadraticCurveTo(x-10,520,x,540);c.stroke();
+  x=1664;rr(x-26,478,52,132,18,"#58c4ff");rr(x-18,446,36,40,8,"#2a8fd0");rr(x-26,520,52,22,0,"rgba(255,255,255,.5)");ci(x+60,596,14,"#bfe6ff");
+  x=1920;rr(x-48,480,96,130,14,"#ff9f1c");rr(x-48,480,96,30,14,"#ffbf47");ci(x,550,26,"#ffd96b");ci(x,550,17,"#ff8a00");c.strokeStyle="#2f2a78";c.lineWidth=9;c.lineCap="round";c.beginPath();c.moveTo(x+22,480);c.lineTo(x+40,436);c.lineTo(x+62,436);c.stroke();
+}
+drawPano();
+/* --- العارض الكروي --- */
+var cv=$("gl"),stage=$("stage"),gl=null;
+try{gl=cv.getContext("webgl")||cv.getContext("experimental-webgl");}catch(e){gl=null;}
+var yaw=-2.55,pitch=-0.05,fov=1.6,FMIN=.55,FMAX=2.0,uRes,uYaw,uPitch,uFov;
+function mk(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o;}
+if(gl){
+  var vs="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+  var fs="precision highp float;uniform vec2 res;uniform float yaw,pitch,fov;uniform sampler2D tex;"+
+  "void main(){vec2 q=(gl_FragCoord.xy-res*.5)/res.y;float f=.5/tan(fov*.5);vec3 d=normalize(vec3(q.x,q.y,f));"+
+  "float cp=cos(pitch),sp=sin(pitch);d=vec3(d.x,d.y*cp+d.z*sp,-d.y*sp+d.z*cp);"+
+  "float cy=cos(yaw),sy=sin(yaw);d=vec3(d.x*cy+d.z*sy,d.y,-d.x*sy+d.z*cy);"+
+  "float lon=atan(d.x,d.z);float lat=asin(clamp(d.y,-1.,1.));"+
+  "gl_FragColor=texture2D(tex,vec2(lon/6.2831853+.5,lat/3.1415926+.5));}";
+  var pr=gl.createProgram();gl.attachShader(pr,mk(gl.VERTEX_SHADER,vs));gl.attachShader(pr,mk(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
+  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){gl=null;}
+  else{
+    gl.useProgram(pr);var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    var lc=gl.getAttribLocation(pr,"p");gl.enableVertexAttribArray(lc);gl.vertexAttribPointer(lc,2,gl.FLOAT,false,0,0);
+    var tx=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tx);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,pano);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    uRes=gl.getUniformLocation(pr,"res");uYaw=gl.getUniformLocation(pr,"yaw");uPitch=gl.getUniformLocation(pr,"pitch");uFov=gl.getUniformLocation(pr,"fov");
+  }
+}
+var cw=0,ch=0,hotsOn=true,LR=100;
+function resize(){
+  if(!stage||stage.offsetParent===null)return;
+  var r=stage.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
+  cw=r.width;ch=r.height;cv.width=Math.max(1,Math.round(cw*dpr));cv.height=Math.max(1,Math.round(ch*dpr));
+  LR=Math.max(70,Math.min(cw,ch)*.24);$("lens").style.width=$("lens").style.height=(LR*2)+"px";
+  if(gl)gl.viewport(0,0,cv.width,cv.height);draw();
+}
+var hsEls=[],hsPos=ITEMS.map(function(_,i){var px=128+SP*i,py=548;return {yaw:(px/W)*Math.PI*2-Math.PI,pitch:-(py-HZ)/H*Math.PI};});
+ITEMS.forEach(function(it,i){
+  var b=document.createElement("button");b.type="button";b.className="hs";b.setAttribute("aria-label","اكتشف: "+it.n);
+  b.onclick=function(e){e.stopPropagation();openItem(i);};$("hots").appendChild(b);hsEls.push(b);
+});
+function placeHots(){
+  var f=.5/Math.tan(fov/2),cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+  hsPos.forEach(function(h,i){
+    var e=hsEls[i];if(!hotsOn){e.style.display="none";return;}
+    var cl=Math.cos(h.pitch),x=cl*Math.sin(h.yaw),y=Math.sin(h.pitch),z=cl*Math.cos(h.yaw);
+    var x1=x*cy-z*sy,z1=x*sy+z*cy,y2=y*cp-z1*sp,z2=y*sp+z1*cp;
+    if(z2<=.05){e.style.display="none";return;}
+    var px=cw/2+x1/z2*f*ch,py=ch/2-y2/z2*f*ch;
+    if(px<-50||px>cw+50||py<-50||py>ch+50){e.style.display="none";return;}
+    var d=Math.hypot(px-cw/2,py-ch/2),inl=d<LR;
+    e.style.display="flex";e.style.opacity=inl||vr.found[i]?1:.4;e.classList.toggle("inlens",inl&&!vr.found[i]);
+    e.style.transform="translate("+px.toFixed(1)+"px,"+py.toFixed(1)+"px)"+(inl?" scale(1.2)":"");
+  });
+}
+function draw(){
+  if(gl){gl.uniform2f(uRes,cv.width,cv.height);gl.uniform1f(uYaw,yaw);gl.uniform1f(uPitch,pitch);gl.uniform1f(uFov,fov);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
+  placeHots();
+}
+var ptrs={},lastD=0;
+stage.addEventListener("pointerdown",function(e){if(e.target.closest("button"))return;stage.setPointerCapture(e.pointerId);ptrs[e.pointerId]={x:e.clientX,y:e.clientY};stage.classList.add("drag");lastD=0;$("hint").style.display="none";});
+stage.addEventListener("pointermove",function(e){
+  var p=ptrs[e.pointerId];if(!p)return;var ids=Object.keys(ptrs);
+  if(ids.length===1){var k=fov/ch;yaw-=(e.clientX-p.x)*k;pitch=Math.max(-1.3,Math.min(1.3,pitch+(e.clientY-p.y)*k));}
+  p.x=e.clientX;p.y=e.clientY;
+  if(ids.length===2){var a=ptrs[ids[0]],b=ptrs[ids[1]],d=Math.hypot(a.x-b.x,a.y-b.y);if(lastD)zoom(lastD/d);lastD=d;}
+  draw();
+});
+function endp(e){delete ptrs[e.pointerId];lastD=0;if(!Object.keys(ptrs).length)stage.classList.remove("drag");}
+stage.addEventListener("pointerup",endp);stage.addEventListener("pointercancel",endp);
+stage.addEventListener("wheel",function(e){e.preventDefault();zoom(e.deltaY>0?1.08:.92);draw();},{passive:false});
+function zoom(m){fov=Math.max(FMIN,Math.min(FMAX,fov*m));}
+$("zin").onclick=function(){zoom(.85);draw();};$("zout").onclick=function(){zoom(1.18);draw();};
+$("fs").onclick=function(){var s=$("stage");if(document.fullscreenElement){document.exitFullscreen();}else if(s.requestFullscreen){s.requestFullscreen();}else if(s.webkitRequestFullscreen){s.webkitRequestFullscreen();}else{alert("المتصفح لا يدعم ملء الشاشة هنا.");}};
+[].forEach.call(document.querySelectorAll(".dpad button"),function(b){b.onclick=function(){
+  var d=b.dataset.d,s=.4;if(d==="l")yaw-=s;if(d==="r")yaw+=s;if(d==="u")pitch=Math.min(1.3,pitch+s*.6);if(d==="d")pitch=Math.max(-1.3,pitch-s*.6);
+  if(d==="c"){yaw=-2.55;pitch=-.05;fov=1.6;}draw();};});
+window.addEventListener("resize",resize);window.addEventListener("orientationchange",function(){setTimeout(resize,250);});
+document.addEventListener("fullscreenchange",function(){setTimeout(resize,150);});
+document.addEventListener("keydown",function(e){if(!$("v-vr").classList.contains("on")||vr.st!==1||$("stage").offsetParent===null)return;
+  var s=.1;if(e.key==="ArrowLeft")yaw-=s;if(e.key==="ArrowRight")yaw+=s;if(e.key==="ArrowUp")pitch=Math.min(1.3,pitch+s);if(e.key==="ArrowDown")pitch=Math.max(-1.3,pitch-s);draw();});
+$("toggleHot").onclick=function(){hotsOn=!hotsOn;this.textContent=hotsOn?"إخفاء النقاط":"إظهار النقاط";draw();};
+var simpleMode=false;
+$("simple").innerHTML=ITEMS.map(function(it,i){return '<button class="item" data-i="'+i+'"><span>'+it.e+'</span>'+it.n+'</button>';}).join("");
+$("simple").onclick=function(e){var b=e.target.closest(".item");if(b)openItem(+b.dataset.i);};
+function setSimple(on){simpleMode=on;$("stage").style.display=on?"none":"block";$("simple").style.display=on?"grid":"none";
+  $("toggleSimple").textContent=on?"العودة إلى المشهد 360°":"العرض العادي (بديل مبسط)";$("toggleHot").style.display=on?"none":"";if(!on)setTimeout(resize,30);}
+$("toggleSimple").onclick=function(){setSimple(!simpleMode);};
+if(!gl){setSimple(true);$("toggleSimple").style.display="none";}
+function openItem(i){var it=ITEMS[i];$("mIcon").textContent=it.e;$("mName").textContent=it.n;$("mInfo").textContent=it.info;$("modal").classList.add("open");vr.found[i]=true;updateFound();}
+$("mOk").onclick=function(){$("modal").classList.remove("open");};
+$("modal").onclick=function(e){if(e.target===$("modal"))$("modal").classList.remove("open");};
+function updateFound(){
+  var n=Object.keys(vr.found).length;$("foundN").textContent="اكتشفت "+n+" من "+ITEMS.length;
+  hsEls.forEach(function(b,i){b.classList.toggle("done",!!vr.found[i]);b.textContent=vr.found[i]?"✓":"";});
+  [].forEach.call($("simple").children,function(b,i){b.classList.toggle("done",!!vr.found[i]);});
+  $("to2").disabled=n<ITEMS.length;draw();
+}
+function showStation(n){
+  vr.st=n;["s1","s2","s3"].forEach(function(id,i){$(id).style.display=(i+1===n)?"block":"none";});
+  [].forEach.call($("stations").children,function(d,i){d.className=(i+1===n)?"on":(i+1<n?"ok":"");});
+  if(n===1){updateFound();setTimeout(resize,30);}
+  if(n===2)renderTray();if(n===3)renderVrEnd();
+  window.scrollTo(0,0);
+}
+$("to2").onclick=function(){showStation(2);};$("to3").onclick=function(){showStation(3);};
+/* محطة 2: الصحن */
+$("foods").innerHTML=ITEMS.map(function(it,i){return '<button class="food" data-i="'+i+'"><span>'+it.e+'</span>'+it.n+'<small>'+it.g+'</small></button>';}).join("");
+$("foods").onclick=function(e){var b=e.target.closest(".food");if(!b||vr.trayOk)return;var i=+b.dataset.i,k=vr.tray.indexOf(i);if(k>=0)vr.tray.splice(k,1);else vr.tray.push(i);$("trayFb").className="fb";renderTray();};
+function renderTray(){
+  [].forEach.call($("foods").children,function(b,i){b.classList.toggle("chosen",vr.tray.indexOf(i)>=0);});
+  $("tray").innerHTML=vr.tray.length?vr.tray.map(function(i){return "<span>"+ITEMS[i].e+" "+ITEMS[i].n+"</span>";}).join(""):'<span style="font-weight:500">الطبق فارغ</span>';
+  $("to3").disabled=!vr.trayOk;
+}
+$("chk").onclick=function(){
+  var fb=$("trayFb");
+  if(vr.tray.length<3){fb.className="fb bad";fb.textContent="💡 اختر ثلاثة أطعمة على الأقل لتكوين مثال أكثر تنوعًا.";return;}
+  vr.trayTries++;
+  var gs={},sweet=false;vr.tray.forEach(function(i){var it=ITEMS[i];if(it.sweet)sweet=true;else gs[it.g]=1;});
+  var n=Object.keys(gs).length;
+  if(n>=3){
+    if(vr.trayFirst===null)vr.trayFirst=(vr.trayTries===1);vr.trayOk=true;vr.groups=n;
+    var m="🎉 أحسنت! اخترت وجبة متنوعة من "+n+" مجموعات غذائية مختلفة. ناقش مع المعلم كيف تتناسب الوجبة مع احتياجات كل طفل.";
+    if(sweet)m+=" تذكّر أن العصير المحلّى فيه سكر مضاف، لذلك نتناوله باعتدال وبحسب خطة كل طفل، دون أن نقول إنه «ممنوع» للجميع.";
+    fb.className="fb good";fb.textContent=m;
+    [].forEach.call($("foods").children,function(b,i){if(vr.tray.indexOf(i)>=0)b.classList.add("good");});
+  }else{
+    if(vr.trayFirst===null)vr.trayFirst=false;
+    fb.className="fb bad";fb.textContent="💡 محاولة جيدة! جرّب إضافة أطعمة من مجموعات مختلفة (مثل الحبوب والبروتين والخضراوات والفاكهة والألبان) لزيادة التنوع.";
+  }
+  renderTray();
+};
+$("retryTray").onclick=function(){vr.tray=[];vr.trayOk=false;$("trayFb").className="fb";[].forEach.call($("foods").children,function(b){b.classList.remove("good");});renderTray();};
+function renderVrEnd(){
+  var n=Object.keys(vr.found).length;
+  $("vrScore").textContent=n+" / "+ITEMS.length;
+  $("vrMsg").textContent="اكتشفتَ "+n+" أدلة، وكوّنتَ وجبة من "+vr.groups+" مجموعات غذائية. "+(vr.trayFirst?"من المحاولة الأولى! 🌟":"والمحاولة الثانية تعلّم أيضًا! 💙");
+  done.vr=true;mark();
+}
+$("vrAgain").onclick=function(){vrReset();[].forEach.call(document.querySelectorAll("#s3 input"),function(i){i.checked=false;});$("trayFb").className="fb";[].forEach.call($("foods").children,function(b){b.classList.remove("good");});showStation(1);};
+
+/* ================= التقويم الختامي (6 أسئلة مصوّرة) ================= */
+var FQ=[
+ {art:"unwell",q:"موقف 1: أثناء الاستراحة، شعر أحمد بالتوعك. ماذا تفعل؟",o:[
+  {i:"💊",t:"أعطيه عصيرًا أو دواءً من حقيبتي.",why:"لا نعطي زميلنا طعامًا أو دواءً من عندنا. فالتصرف المناسب يحدده البالغ المسؤول وفق الخطة المعتمدة."},
+  {i:"🙋",t:"أخبر المعلم أو البالغ المسؤول فورًا.",ok:1,why:"أحسنت! نخبر المعلم أو البالغ المسؤول ليتبع خطة أحمد الصحية المعتمدة."},
+  {i:"🏃",t:"أطلب منه أن يتحمل ويكمل اللعب.",why:"لا نتجاهل شعور زميلنا بالتوعك. نخبر شخصًا بالغًا فورًا."}]},
+ {art:"office",q:"موقف 2: طلب منك أحمد أن تساعده لأنه يحتاج إلى اتباع خطته الصحية. كيف تتصرف؟",o:[
+  {i:"👑",t:"أقرر له ماذا يأكل وماذا يفعل.",why:"القرارات الصحية ليست لنا، بل لأحمد وأسرته والبالغين المسؤولين."},
+  {i:"💙",t:"أحترم خطته، وأرافقه إلى المعلم أو الممرضة إن احتاج إلى ذلك.",ok:1,why:"رائع! الاحترام والمرافقة إلى البالغ المسؤول دعم حقيقي دون تدخّل في العلاج."},
+  {i:"🙅",t:"أقول له: لا داعي لاتباع الخطة.",why:"الخطة الصحية مهمة لأحمد. نشجعه على اتباعها مع البالغين."}]},
+ {art:"classroom",q:"موقف 3: قال أحد التلاميذ: «السكري مرض معدٍ، فلنبتعد عن أحمد!» ماذا توضح له؟",o:[
+  {i:"👍",t:"أوافقه حتى لا نختلف.",why:"المعلومة غير صحيحة. من الأفضل أن نوضح بلطف."},
+  {i:"😂",t:"أضحك عليه وأقول إنه لا يعرف شيئًا.",why:"لا نسخر من أحد حتى لو أخطأ. نشرح له بلطف."},
+  {i:"🤝",t:"أوضح بهدوء أن السكري غير معدٍ، ويمكننا اللعب مع أحمد.",ok:1,why:"أحسنت! المعلومة الصحيحة تنشر الاحترام وتمنع الخوف غير المبرر."}]},
+ {art:"bully",q:"موقف 4: سخر زميل من أحمد وقال كلامًا مؤذيًا. ماذا نفعل؟",o:[
+  {i:"🛡️",t:"نقول بلطف: «لا نسخر من أحد»، ونخبر المعلمة إن استمر ذلك.",ok:1,why:"رائع! الاحترام والتعاون يمنعان التنمر، ونطلب مساعدة البالغين عند الحاجة."},
+  {i:"😂",t:"نضحك معه حتى لا يغضب.",why:"الضحك يشجع على السخرية ويؤذي أحمد."},
+  {i:"🙈",t:"نتجاهل الأمر.",why:"التجاهل لا يساعد أحمد. نستطيع أن نتصرف بلطف وشجاعة."}]},
+ {art:"gate",q:"سؤال 5: ماذا نعرف عن مرض السكري؟",o:[
+  {i:"🦠",t:"مرض معدٍ ينتقل باللعب.",why:"السكري غير معدٍ."},
+  {i:"🏫",t:"مرض غير معدٍ، ويمكن للطفل المصاب المشاركة في أنشطة المدرسة.",ok:1,why:"صحيح! السكري غير معدٍ، ونحترم زميلنا ونشاركه اللعب."},
+  {i:"🤧",t:"ينتقل بالعطس.",why:"السكري لا ينتقل بالعطس ولا باللمس."}]},
+ {art:"cafe",q:"سؤال 6: ماذا نقول عن الطعام والأطفال المصابين بالسكري؟",o:[
+  {i:"🍽️",t:"كلهم يأكلون الطعام نفسه.",why:"احتياجات الأطفال تختلف بحسب خطة كل طفل."},
+  {i:"🚫",t:"كلهم ممنوعون من كل الحلويات دائمًا.",why:"هذه فكرة غير دقيقة؛ فالخطة تختلف من طفل لآخر."},
+  {i:"📋",t:"لا توجد قائمة واحدة تناسب الجميع؛ لكل طفل خطته الصحية.",ok:1,why:"أحسنت! الخطة الصحية لكل طفل تحدد احتياجاته."}]}
+];
+var fin={i:0,a:FQ.map(function(){return {};})};
+function renderFinal(){
+  var b=$("fnBody"),n=FQ.length;
+  if(fin.i>=n){
+    var ok=fin.a.filter(function(x){return x.first;}).length;done.final=true;mark();$("fnCount").textContent="النتيجة";$("fnBar").style.width="100%";
+    b.innerHTML=ART.end()+'<div class="sbody"><div class="badge">🏅</div><h3 style="text-align:center">شارة «المحقق الصديق الداعم»</h3><div class="res">'+ok+' / '+n+'</div><p class="txt" style="text-align:center">'+(ok>=5?"ممتاز! فهمتَ الرسائل الصحية، وأصبحتَ صديقًا داعمًا.":ok>=3?"أحسنت! تعلّمتَ الكثير، ويمكنك إعادة التقويم للتدرب أكثر.":"بداية رائعة! كل محاولة تساعدنا على التعلم، فأعد التقويم وجرّب من جديد.")+'</p>'+
+    '<ul class="list"><li>السكري غير معدٍ، ونحترم زميلنا.</li><li>نخبر المعلم أو البالغ المسؤول عند توعك زميلنا.</li><li>لكل طفل خطة صحية، ولا نعالج زملاءنا بأنفسنا.</li></ul>'+
+    '<h3>قائمة ملاحظة المعلم (3 معايير)</h3><div class="check noprint"><label><input type="checkbox"> يختار التلميذ أطعمة متنوعة</label><label><input type="checkbox"> يفسّر اختياره تفسيرًا بسيطًا</label><label><input type="checkbox"> يحدد التصرف الصحيح في المواقف الصحية</label></div>'+
+    '<div class="nav2"><span><button class="btn line" data-go="guide">→ الدليل المصوّر</button> <button class="btn line" id="fnAgain">إعادة التقويم</button></span><button class="btn" data-go="home">الصفحة الرئيسية</button></div></div>';
+    $("fnAgain").onclick=function(){fin={i:0,a:FQ.map(function(){return {};})};renderFinal();};return;
+  }
+  var a=fin.a[fin.i];$("fnCount").textContent="السؤال "+(fin.i+1)+" من "+n;
+  function bar(){$("fnBar").style.width=((fin.i+(a.done?1:0))/n*100)+"%";}bar();
+  b.innerHTML=ART[FQ[fin.i].art]()+'<div class="sbody"><div id="fq"></div><div class="nav2"><button class="btn line" id="fnPrev">→ السابق</button><button class="btn" id="fnNext">'+(fin.i===n-1?"عرض النتيجة ←":"التالي ←")+'</button></div></div>';
+  var nx=$("fnNext");nx.disabled=!a.done;$("fnPrev").disabled=fin.i===0;$("fnPrev").style.opacity=fin.i===0?.4:1;
+  mcq($("fq"),a,FQ[fin.i].q,FQ[fin.i].o,function(){nx.disabled=!a.done;bar();});
+  $("fnPrev").onclick=function(){if(fin.i>0){fin.i--;renderFinal();}};
+  nx.onclick=function(){fin.i++;renderFinal();window.scrollTo(0,0);};
+}
+
+/* ================= التشغيل ================= */
+window.addEventListener("hashchange",function(){go(location.hash.slice(1)||"home");});
+mark();updateFound();go(location.hash.slice(1)||"home");
+})();
+</script>
+</body>
+</html>
